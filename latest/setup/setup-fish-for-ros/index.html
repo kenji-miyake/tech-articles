@@ -1,0 +1,1225 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kenji-miyake.github.io/tech-articles/latest/setup/setup-fish-for-ros/">
+      
+      <link rel="icon" href="../../assets/images/icon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>ROS ユーザー向け fish shell 設定と自作プラグインの紹介 - kenji-miyake's Tech Articles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ros-fish-shell" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="kenji-miyake&#39;s Tech Articles" class="md-header__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kenji-miyake's Tech Articles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              ROS ユーザー向け fish shell 設定と自作プラグインの紹介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      kenji-miyake's Tech Articles
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="./" class="md-tabs__link md-tabs__link--active">
+        Setup
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="kenji-miyake&#39;s Tech Articles" class="md-nav__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    kenji-miyake's Tech Articles
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        kenji-miyake's Tech Articles
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Setup
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Setup" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Setup
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          ROS ユーザー向け fish shell 設定と自作プラグインの紹介
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        ROS ユーザー向け fish shell 設定と自作プラグインの紹介
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bashrc" class="md-nav__link">
+    .bashrc の設定
+  </a>
+  
+    <nav class="md-nav" aria-label=".bashrc の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bashrc_1" class="md-nav__link">
+    .bashrc 全体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc_2" class="md-nav__link">
+    .bashrc を短く書くための設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localbin-path" class="md-nav__link">
+    ~/.local/bin を PATH に追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    ROS 用の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linuxbrew" class="md-nav__link">
+    Linuxbrew の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-fish" class="md-nav__link">
+    bash から fish を起動する設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configfishconfigfish" class="md-nav__link">
+    ~/.config/fish/config.fish の設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fish" class="md-nav__link">
+    おすすめ fish プラグイン
+  </a>
+  
+    <nav class="md-nav" aria-label="おすすめ fish プラグイン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jorgebucaranfisher" class="md-nav__link">
+    jorgebucaran/fisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rafaelrinaldipure" class="md-nav__link">
+    rafaelrinaldi/pure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jethrokuanfzf" class="md-nav__link">
+    jethrokuan/fzf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edcbass" class="md-nav__link">
+    edc/bass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decorsfish-ghq" class="md-nav__link">
+    decors/fish-ghq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oh-my-fishplugin-pbcopy" class="md-nav__link">
+    oh-my-fish/plugin-pbcopy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自作プラグインの紹介
+  </a>
+  
+    <nav class="md-nav" aria-label="自作プラグインの紹介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakevcdfish" class="md-nav__link">
+    kenji-miyake/vcd.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakereloadfish" class="md-nav__link">
+    kenji-miyake/reload.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakeauto-source-setup-bashfish" class="md-nav__link">
+    kenji-miyake/auto-source-setup-bash.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakecolcon-cleanfish" class="md-nav__link">
+    kenji-miyake/colcon-clean.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakecolcon-abbrfish" class="md-nav__link">
+    kenji-miyake/colcon-abbr.fish
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    セットアップ用スクリプト
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-ubuntu-2004/" class="md-nav__link">
+        Ubuntu 20.04 セットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-ubuntu-2204/" class="md-nav__link">
+        Ubuntu 22.04 セットアップ
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-vscode/" class="md-nav__link">
+        VSCode セットアップ
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bashrc" class="md-nav__link">
+    .bashrc の設定
+  </a>
+  
+    <nav class="md-nav" aria-label=".bashrc の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bashrc_1" class="md-nav__link">
+    .bashrc 全体
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bashrc_2" class="md-nav__link">
+    .bashrc を短く書くための設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localbin-path" class="md-nav__link">
+    ~/.local/bin を PATH に追加
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    ROS 用の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linuxbrew" class="md-nav__link">
+    Linuxbrew の設定
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bash-fish" class="md-nav__link">
+    bash から fish を起動する設定
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configfishconfigfish" class="md-nav__link">
+    ~/.config/fish/config.fish の設定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fish" class="md-nav__link">
+    おすすめ fish プラグイン
+  </a>
+  
+    <nav class="md-nav" aria-label="おすすめ fish プラグイン">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jorgebucaranfisher" class="md-nav__link">
+    jorgebucaran/fisher
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rafaelrinaldipure" class="md-nav__link">
+    rafaelrinaldi/pure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#jethrokuanfzf" class="md-nav__link">
+    jethrokuan/fzf
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#edcbass" class="md-nav__link">
+    edc/bass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decorsfish-ghq" class="md-nav__link">
+    decors/fish-ghq
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#oh-my-fishplugin-pbcopy" class="md-nav__link">
+    oh-my-fish/plugin-pbcopy
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    自作プラグインの紹介
+  </a>
+  
+    <nav class="md-nav" aria-label="自作プラグインの紹介">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakevcdfish" class="md-nav__link">
+    kenji-miyake/vcd.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakereloadfish" class="md-nav__link">
+    kenji-miyake/reload.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakeauto-source-setup-bashfish" class="md-nav__link">
+    kenji-miyake/auto-source-setup-bash.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakecolcon-cleanfish" class="md-nav__link">
+    kenji-miyake/colcon-clean.fish
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kenji-miyakecolcon-abbrfish" class="md-nav__link">
+    kenji-miyake/colcon-abbr.fish
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    セットアップ用スクリプト
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/kenji-miyake/tech-articles/edit/main/docs/setup/setup-fish-for-ros.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+<h1 id="ros-fish-shell">ROS ユーザー向け fish shell 設定と自作プラグインの紹介<a class="headerlink" href="#ros-fish-shell" title="Permanent link">#</a></h1>
+<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<p>こちらの記事に触発されたので僕も書いてみます。</p>
+<p><a href="https://zenn.dev/eduidl/articles/fc6f29f73ebb34">https://zenn.dev/eduidl/articles/fc6f29f73ebb34</a></p>
+<p>fish の基本的な使い方や利点/欠点は、他の解説記事にお任せします。
+このあたりが分かりやすくて良いと思いました。</p>
+<p><a href="https://qiita.com/hennin/items/33758226a0de8c963ddf">https://qiita.com/hennin/items/33758226a0de8c963ddf</a>
+<a href="https://qiita.com/hiraike32/items/8458a69cd98f8ac23e7a">https://qiita.com/hiraike32/items/8458a69cd98f8ac23e7a</a></p>
+<p>fish の良さを一言で言うなら、「設定をがんばらなくても、いい感じに動く」です。
+設定疲れしたあなたやデフォルト教のあなた、ぜひ使ってみて下さい！
+（<strong>POSIX 非互換</strong>に嫌悪感を持つ人が多いですが、バージョン 3 からは<code>&amp;&amp;</code>や<code>||</code>も使えるようになり、そんなに違和感なく使えます。強いて言うなら、 <code>$</code>や<code>*</code>の扱いが特殊なので、たまに困るくらいですかね？）</p>
+<h3 id="_2">環境<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<ul>
+<li>Ubuntu 20.04</li>
+<li>ROS1/ROS2</li>
+</ul>
+<h3 id="_3">対象読者<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<ul>
+<li>Ubuntu で ROS を使っている方</li>
+<li>fish と仲良くなりたい方</li>
+</ul>
+<h2 id="bashrc">.bashrc の設定<a class="headerlink" href="#bashrc" title="Permanent link">#</a></h2>
+<p>「fish なのに何で bash の設定？」と思う方もいらっしゃるかもしれませんが、</p>
+<ul>
+<li>fish をデフォルトシェルにするとハマりがち</li>
+<li>セットアップ用スクリプトは bash で実行した方が、コマンドを書き換えなくて良いので楽なことが多い</li>
+<li>ROS1 だと補完スクリプトが独自実装で、fish だと動かないものも多い（特に rosbag 周り）<ul>
+<li>ROS2 だと argcomplete を使うので、言語間の差異は無くなっているはず？</li>
+<li>（argcomplete になったせいで fish の良さが一部消えてしまったりもするんですが…）</li>
+</ul>
+</li>
+</ul>
+<p>等の理由で bash も併用した方が良いので、そのための設定を紹介します。
+併用するとは言え、設定を二重管理するのは避けたいので、基本は<code>.bashrc</code>だけに書くようにしています。</p>
+<p>まず僕の <code>.bashrc</code> を書いてしまって、その後ブロックごとに解説していきます。</p>
+<h3 id="bashrc_1">.bashrc 全体<a class="headerlink" href="#bashrc_1" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># If not running interactively, don&#39;t do anything</span>
+<span class="k">case</span> <span class="nv">$-</span> <span class="k">in</span>
+    *i*<span class="o">)</span> <span class="p">;;</span>
+    *<span class="o">)</span> <span class="k">return</span><span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c1"># Original .bashrc</span>
+<span class="nb">source</span> /etc/skel/.bashrc
+
+<span class="c1"># Add user&#39;s private bin to PATH</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+
+<span class="c1"># ROS</span>
+<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/opt/ros&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">test</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">ROS_DISTRO</span><span class="o">=</span>foxy
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;rolling&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/rolling/setup.bash
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;foxy&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/foxy/setup.bash
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;noetic&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/noetic/setup.bash
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Invalid ROS_DISTRO `</span><span class="nv">$ROS_DISTRO</span><span class="s2">` was given.&quot;</span>
+    <span class="k">fi</span>
+
+    <span class="nb">source</span> /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">ROSCONSOLE_FORMAT</span><span class="o">=</span><span class="s1">&#39;[${severity}] [${time}] [${node}]: ${message}&#39;</span>
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=</span><span class="s2">&quot;[{severity} {time}] [{name}]: {message}&quot;</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+
+<span class="c1"># Linuxbrew</span>
+<span class="nb">test</span> -d /home/linuxbrew/.linuxbrew <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="k">$(</span>/home/linuxbrew/.linuxbrew/bin/brew shellenv<span class="k">)</span>
+
+<span class="c1"># Fish Shell</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$FISH_VERSION</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">command</span> -v fish &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> fish
+<span class="k">fi</span>
+</code></pre></div>
+<h3 id="bashrc_2">.bashrc を短く書くための設定<a class="headerlink" href="#bashrc_2" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># If not running interactively, don&#39;t do anything</span>
+<span class="k">case</span> <span class="nv">$-</span> <span class="k">in</span>
+    *i*<span class="o">)</span> <span class="p">;;</span>
+    *<span class="o">)</span> <span class="k">return</span><span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c1"># Original .bashrc</span>
+<span class="nb">source</span> /etc/skel/.bashrc
+</code></pre></div>
+<p>fish とは関係ないんですが、オススメなので紹介します。
+<code>.bashrc</code> って、デフォルトで色々書いてあって長いですよね…下に ROS 用の設定を追記していくと思うんですが、どこからが自分が書いた設定か、たまに分からなくなりませんか？
+このように書いておくと、デフォルト設定を短く書けるので見通しが良くなります。</p>
+<h3 id="localbin-path">~/.local/bin を PATH に追加<a class="headerlink" href="#localbin-path" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Add user&#39;s private bin to PATH</span>
+<span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$HOME</span><span class="s2">/.local/bin:</span><span class="nv">$PATH</span><span class="s2">&quot;</span>
+</code></pre></div>
+<p>argcomplete 等、<code>pip3 install --user</code> でインストールしたものはここに置かれると思うので、PATH に追加しておきましょう。
+<code>~/.profile</code> にも一応書いてあるんですが、bash 起動時に毎回読み込まれるわけではなく、後述するプラグインを使う時にちょっと困るので、<code>.bashrc</code> でも設定しています。</p>
+<h3 id="ros">ROS 用の設定<a class="headerlink" href="#ros" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># ROS</span>
+<span class="k">if</span> <span class="o">[</span> -d <span class="s2">&quot;/opt/ros&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">test</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nb">export</span> <span class="nv">ROS_DISTRO</span><span class="o">=</span>foxy
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;rolling&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/rolling/setup.bash
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;foxy&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/foxy/setup.bash
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_DISTRO</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;noetic&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">source</span> /opt/ros/noetic/setup.bash
+    <span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Invalid ROS_DISTRO `</span><span class="nv">$ROS_DISTRO</span><span class="s2">` was given.&quot;</span>
+    <span class="k">fi</span>
+
+    <span class="nb">source</span> /usr/share/colcon_argcomplete/hook/colcon-argcomplete.bash
+
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">ROSCONSOLE_FORMAT</span><span class="o">=</span><span class="s1">&#39;[${severity}] [${time}] [${node}]: ${message}&#39;</span>
+    <span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+        <span class="nb">export</span> <span class="nv">RCUTILS_CONSOLE_OUTPUT_FORMAT</span><span class="o">=</span><span class="s2">&quot;[{severity} {time}] [{name}]: {message}&quot;</span>
+    <span class="k">fi</span>
+<span class="k">fi</span>
+</code></pre></div>
+<p><code>setup.bash</code>を読んで、バージョン毎の設定を少ししているだけです。
+後述するプラグインのために、if 文で読み込むバージョンを変えています。
+1 つのバージョンしか使わないよ、という方はシンプルに 1 つだけ読む設定を書けば良いと思います。</p>
+<h3 id="linuxbrew">Linuxbrew の設定<a class="headerlink" href="#linuxbrew" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Linuxbrew</span>
+<span class="nb">test</span> -d /home/linuxbrew/.linuxbrew <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="k">$(</span>/home/linuxbrew/.linuxbrew/bin/brew shellenv<span class="k">)</span>
+</code></pre></div>
+<p>ghq/fd/fzf 等の、 fish プラグインの依存が apt で入らないことがあるので、そのために入れています。</p>
+<p>brew はとても便利なんですが、注意点もあります。
+brew で様々なパッケージをインストールしていると、意図しないものまで勝手に brew link してしまい、そのせいでビルドが通らなくなったりします。
+例えば、Python 関連のパッケージを入れると、gcc/python/pkg-config あたりが壊れがちな印象です…</p>
+<h3 id="bash-fish">bash から fish を起動する設定<a class="headerlink" href="#bash-fish" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fish Shell</span>
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$FISH_VERSION</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">command</span> -v fish &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> fish
+<span class="k">fi</span>
+</code></pre></div>
+<p>ここで、以下の挙動を実現しています。</p>
+<ul>
+<li>通常時は fish を起動する</li>
+<li>fish から <code>bash</code>と起動した時は bash を起動する<ul>
+<li>厳密には、<code>FISH_VERSION="$FISH_VERSION" bash</code>ですが、プラグインでラップしています</li>
+</ul>
+</li>
+</ul>
+<p>bash から fish を起動することで、bash で定義した環境変数を fish でも利用することができて便利です。</p>
+<h2 id="configfishconfigfish">~/.config/fish/config.fish の設定<a class="headerlink" href="#configfishconfigfish" title="Permanent link">#</a></h2>
+<p>これが fish 用の設定ファイルです。基本的にはプラグインを作って外に出しているので、あまり設定を書いていません。</p>
+<p>僕はこのように設定しています。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">alias </span><span class="nv">colcon</span><span class="o">=</span><span class="s1">&#39;__colcon_find_workspace_dir &gt; /dev/null &amp;&amp; cd (__colcon_find_workspace_dir); command colcon&#39;</span>
+<span class="nb">alias </span><span class="nv">roscd</span><span class="o">=</span><span class="s2">&quot;ccd -o&quot;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span>
+    <span class="nb">source</span> /opt/ros/noetic/share/rosbash/rosfish
+<span class="k">else</span> <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$ROS_VERSION</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span>
+    register-python-argcomplete --shell <span class="nb">fish </span>ros2 <span class="o">|</span> <span class="nb">source</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>ポイントは以下の通りです。</p>
+<ul>
+<li>colcon のエイリアスを設定しておくとミスが少なくなる<ul>
+<li>例えば <code>~/workspace/src/foo</code> で <code>colcon build</code> した時、 <code>cd ~/workspace</code> してからビルドしてくれる<ul>
+<li><code>colcon build</code> は、ビルドしたフォルダに <code>build/</code> <code>install/</code> <code>log/</code> ができてしまうため不便</li>
+<li><code>catkin build</code> のように、カレントディレクトリに関わらずワークスペースルートに対してビルドしてくれる</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>自作プラグインを使うと、ROS2 でも <code>roscd</code> っぽいことができる<ul>
+<li>公式で <code>colcon_cd</code> というのもあるが、自分には合わなかったし、そもそも bash しか使えないっぽい…</li>
+</ul>
+</li>
+<li>ROS1 は rosfish、ROS2 は argcomplete で ROS コマンドを Tab 補完できるようになる</li>
+</ul>
+<h2 id="fish">おすすめ fish プラグイン<a class="headerlink" href="#fish" title="Permanent link">#</a></h2>
+<p>インストール方法は最後に載せるので、ここでは機能概要だけ紹介します。</p>
+<h3 id="jorgebucaranfisher"><a href="https://github.com/jorgebucaran/fisher">jorgebucaran/fisher</a><a class="headerlink" href="#jorgebucaranfisher" title="Permanent link">#</a></h3>
+<p>プラグイン管理用のプラグインで、これを使っておけば間違いないです。</p>
+<h3 id="rafaelrinaldipure"><a href="https://github.com/rafaelrinaldi/pure">rafaelrinaldi/pure</a><a class="headerlink" href="#rafaelrinaldipure" title="Permanent link">#</a></h3>
+<p>シンプルなテーマで、ミニマリストにオススメです。</p>
+<h3 id="jethrokuanfzf"><a href="https://github.com/jethrokuan/fzf">jethrokuan/fzf</a><a class="headerlink" href="#jethrokuanfzf" title="Permanent link">#</a></h3>
+<p><code>Ctrl-R</code>で履歴検索ができます。
+<code>PatrickF1/fzf.fish</code>もありますが、僕はこちらの方が好きです。</p>
+<h3 id="edcbass"><a href="https://github.com/edc/bass">edc/bass</a><a class="headerlink" href="#edcbass" title="Permanent link">#</a></h3>
+<p>fish から bash スクリプトを呼べるようにしてくれるスグレモノです。ROS では必須ですね！
+ソースをチラ見したところ、bash を実行して環境変数の差分を反映する、みたいな実装だった気がします。</p>
+<h3 id="decorsfish-ghq"><a href="https://github.com/decors/fish-ghq">decors/fish-ghq</a><a class="headerlink" href="#decorsfish-ghq" title="Permanent link">#</a></h3>
+<p><code>Ctrl-g</code>で<code>ghq get</code>したリポジトリ一覧を検索して移動できます。
+「あの ROS パッケージのソースどうなってるんだろう？」となった時に気軽に clone して実装を追えるので便利です。
+home 直下や<code>~/workspace</code>等に clone していっても良いんですが、リポジトリが増えると管理が大変なので、ghq に任せるのがオススメです。</p>
+<h3 id="oh-my-fishplugin-pbcopy"><a href="https://github.com/oh-my-fish/plugin-pbcopy">oh-my-fish/plugin-pbcopy</a><a class="headerlink" href="#oh-my-fishplugin-pbcopy" title="Permanent link">#</a></h3>
+<p><code>xsel --clipboard --input</code>をラップした<code>pbcopy</code>という関数を定義してくれます。…それだけですが、自分でエイリアスを定義するよりはプラグインを入れる方が楽です。</p>
+<h2 id="_4">自作プラグインの紹介<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p>ROS ユーザーにとって恐らく便利であろうプラグインをいくつか作っているので、良かったら使ってみて下さい！
+リポジトリの README にも色々書いているので、詳細はそちらをご覧下さい。</p>
+<h3 id="kenji-miyakevcdfish"><a href="https://github.com/kenji-miyake/vcd.fish">kenji-miyake/vcd.fish</a><a class="headerlink" href="#kenji-miyakevcdfish" title="Permanent link">#</a></h3>
+<p>ROS 開発では、<code>.repos</code>ファイルを使ってワークスペースを構築することが多いと思います。
+でもその時、 <code>cd ~/ros2_ws/src/foo/bar/baz</code>と毎回 cd するのは面倒ですよね。</p>
+<p>そんな時のために、2 つコマンドをご用意しております。</p>
+<ul>
+<li><code>vcd</code>: リポジトリに移動</li>
+<li><code>ccd</code>: パッケージに移動</li>
+</ul>
+<p>使い方は以下の Gif を見ていただければ分かると思います。</p>
+<p><img alt="vcd.gif" src="https://github.com/kenji-miyake/vcd.fish/raw/main/images/vcd.gif" /></p>
+<p><img alt="ccd.gif" src="https://github.com/kenji-miyake/vcd.fish/raw/main/images/ccd.gif" /></p>
+<h3 id="kenji-miyakereloadfish"><a href="https://github.com/kenji-miyake/reload.fish">kenji-miyake/reload.fish</a><a class="headerlink" href="#kenji-miyakereloadfish" title="Permanent link">#</a></h3>
+<p>環境変数を初期化して、シェルを再起動してくれます。
+やっていることはシンプルなんですが、結構便利だなぁって個人的には思っています。
+colcon を使っていると意図しないワークスペースのオーバーレイが発生しがちで、無駄なトラブルを防ぐために、こまめに環境変数をリセットするよう心がけています。</p>
+<p>例えば、こういうことができます。さっきの<code>.bashrc</code>の設定との合わせ技ですね！
+エディタで設定を書き換えてターミナル起動し直し…のような面倒なことはもうしなくても良いです。</p>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="nv">$PYTHONPATH</span>
+/opt/ros/foxy/lib/python3.8/site-packages
+
+$ reload -e <span class="nv">ROS_DISTRO</span><span class="o">=</span>noetic
+
+$ <span class="nb">echo</span> <span class="nv">$PYTHONPATH</span>
+/opt/ros/noetic/lib/python3/dist-packages
+</code></pre></div>
+<h3 id="kenji-miyakeauto-source-setup-bashfish"><a href="https://github.com/kenji-miyake/auto-source-setup-bash.fish">kenji-miyake/auto-source-setup-bash.fish</a><a class="headerlink" href="#kenji-miyakeauto-source-setup-bashfish" title="Permanent link">#</a></h3>
+<p>その名の通り、ROS ワークスペースに移動した時に、自動的に<code>setup.bash</code>を source してくれます。
+前回読んだものを記憶しておいて、次回以降は home に移動した時（＝ターミナルを起動した時）に読み込んでくれます。
+別のワークスペースを読み込みたい時は、ワークスペースに移動して <code>reload</code> を実行すれば良いです。</p>
+<p>たまに邪魔になる時もあるので、そういう時は以下を試してみて下さい。</p>
+<ul>
+<li><code>auto_source_clear_cache</code>でキャッシュを消す</li>
+<li><code>auto_source_disable</code>で無効化する<ul>
+<li><code>auto_source_enable</code>で再度有効化する</li>
+</ul>
+</li>
+</ul>
+<h3 id="kenji-miyakecolcon-cleanfish"><a href="https://github.com/kenji-miyake/colcon-clean.fish">kenji-miyake/colcon-clean.fish</a><a class="headerlink" href="#kenji-miyakecolcon-cleanfish" title="Permanent link">#</a></h3>
+<p>colcon でも<code>catkin clean</code>相当のことができるようになります。
+実装は単に <code>rm -rf build/{package_name} install/{package_name}</code>をしているだけです。</p>
+<h3 id="kenji-miyakecolcon-abbrfish"><a href="https://github.com/kenji-miyake/colcon-abbr.fish">kenji-miyake/colcon-abbr.fish</a><a class="headerlink" href="#kenji-miyakecolcon-abbrfish" title="Permanent link">#</a></h3>
+<p>colcon のビルドコマンドを爆速で打てるようにしてくれます。
+ユーザー側で自由にオプションを足すこともできます。
+<code>abbr</code> は <code>alias</code> とは違って、後からコマンド検索しやすいのが良いですね。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Input</span>
+$ cbrp&lt;Space&gt;
+
+<span class="c1"># Expanded Result</span>
+$ colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE<span class="o">=</span>Release --packages-up-to
+</code></pre></div>
+<h2 id="_5">セットアップ用スクリプト<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<p>上で紹介した環境をセットアップするためのスクリプトです。
+インストールしてみると良さが分かると思うので、まずは気軽に試してみて下さい！</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># fish-shell</span>
+sudo apt-get update
+sudo apt-get install fish
+
+<span class="c1"># dependent libraries</span>
+sudo apt-get install fzf fd-find jq
+ln -s <span class="k">$(</span>which fdfind<span class="k">)</span> ~/.local/bin/fd
+
+<span class="c1"># Fisher</span>
+fish -c <span class="s2">&quot;curl -sL https://git.io/fisher | source &amp;&amp; fisher install jorgebucaran/fisher&quot;</span>
+
+<span class="c1"># recommended fish plugins</span>
+fish -c <span class="s2">&quot;fisher install rafaelrinaldi/pure oh-my-fish/plugin-pbcopy edc/bass jethrokuan/fzf decors/fish-ghq&quot;</span>
+
+<span class="c1"># kenji-miyake&#39;s fish plugins</span>
+fish -c <span class="s2">&quot;fisher install kenji-miyake/reload.fish kenji-miyake/vcd.fish kenji-miyake/auto-source-setup-bash.fish kenji-miyake/colcon-clean.fish kenji-miyake/colcon-abbr.fish&quot;</span>
+
+<span class="c1"># argcomplete</span>
+pip3 install --user argcomplete
+<span class="nb">echo</span> <span class="s1">&#39;register-python-argcomplete --shell fish ros2 | source&#39;</span> &gt;&gt; ~/.config/fish/config.fish
+</code></pre></div>
+<p>ghq だけはこのままだと動かないので、別途 brew 等で入れて下さい。
+Ubuntu 以外の方はいい感じに apt 周りを変更して下さい。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../.." class="md-footer__link md-footer__link--prev" aria-label="Previous: kenji-miyake&#39;s Tech Articles" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              kenji-miyake's Tech Articles
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../setup-ubuntu-2004/" class="md-footer__link md-footer__link--next" aria-label="Next: Ubuntu 20.04 セットアップ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Ubuntu 20.04 セットアップ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Kenji Miyake
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

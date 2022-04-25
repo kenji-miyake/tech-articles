@@ -1,0 +1,1546 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kenji-miyake.github.io/tech-articles/pr-4/setup-ubuntu-2004/">
+      
+      <link rel="icon" href="../assets/images/icon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Setup ubuntu 2004 - kenji-miyake's Tech Articles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="kenji-miyake&#39;s Tech Articles" class="md-header__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kenji-miyake's Tech Articles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup ubuntu 2004
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      kenji-miyake's Tech Articles
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Setup ubuntu 2004
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../setup-ubuntu-2204/" class="md-tabs__link">
+      Ubuntu 22.04 セットアップ
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../setup-vscode/" class="md-tabs__link">
+      Setup vscode
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="kenji-miyake&#39;s Tech Articles" class="md-nav__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    kenji-miyake's Tech Articles
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        kenji-miyake's Tech Articles
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setup ubuntu 2004
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Setup ubuntu 2004
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    目次
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-2004" class="md-nav__link">
+    Ubuntu 20.04 のインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="Ubuntu 20.04 のインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso" class="md-nav__link">
+    ISO ファイルのダウンロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb" class="md-nav__link">
+    インストール USB の作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb_1" class="md-nav__link">
+    USB から起動してインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvidia-driver" class="md-nav__link">
+    NVIDIA Driver のインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="NVIDIA Driver のインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-ppa" class="md-nav__link">
+    (Optional) PPA を追加する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    (Optional) 推奨ドライバを確認する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ドライバをインストールする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH 公開鍵の生成と登録
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    日本語入力の設定
+  </a>
+  
+    <nav class="md-nav" aria-label="日本語入力の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option1" class="md-nav__link">
+    Option1. インプットメソッドフレームワークの選択
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option2-onoff" class="md-nav__link">
+    Option2. 日本語入力 ON/OFF の切り替え方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ソフトウェアのインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="ソフトウェアのインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    GUI アプリケーション
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish-shell" class="md-nav__link">
+    fish shell
+  </a>
+  
+    <nav class="md-nav" aria-label="fish shell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fish" class="md-nav__link">
+    問題 1. fish がインストールされていないとターミナルが起動しなくなる
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fish-bash-bash" class="md-nav__link">
+    問題 2. fish 上で bash と実行しても Bash に切り替わらない
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    Vim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminator" class="md-nav__link">
+    Terminator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linuxbrew" class="md-nav__link">
+    Linuxbrew
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt で入るもの
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brew" class="md-nav__link">
+    brew で入るもの
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    カスタマイズ
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタマイズ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ホームディレクトリのフォルダ名を英語にする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capslock-ctrl" class="md-nav__link">
+    CapsLock を Ctrl にする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ターミナルで無限スクロールバックできるようにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    スクリーンショットのショートカットを変更する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    スワップファイルを拡張する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows とのデュアルブートで時計がずれるのを直す
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnome-shell-extensions" class="md-nav__link">
+    便利な GNOME Shell Extensions をインストールする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-ubuntu-2204/" class="md-nav__link">
+        Ubuntu 22.04 セットアップ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-vscode/" class="md-nav__link">
+        Setup vscode
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    目次
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ubuntu-2004" class="md-nav__link">
+    Ubuntu 20.04 のインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="Ubuntu 20.04 のインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iso" class="md-nav__link">
+    ISO ファイルのダウンロード
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb" class="md-nav__link">
+    インストール USB の作成
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usb_1" class="md-nav__link">
+    USB から起動してインストール
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nvidia-driver" class="md-nav__link">
+    NVIDIA Driver のインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="NVIDIA Driver のインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#optional-ppa" class="md-nav__link">
+    (Optional) PPA を追加する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional" class="md-nav__link">
+    (Optional) 推奨ドライバを確認する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    ドライバをインストールする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssh" class="md-nav__link">
+    SSH 公開鍵の生成と登録
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    日本語入力の設定
+  </a>
+  
+    <nav class="md-nav" aria-label="日本語入力の設定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option1" class="md-nav__link">
+    Option1. インプットメソッドフレームワークの選択
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option2-onoff" class="md-nav__link">
+    Option2. 日本語入力 ON/OFF の切り替え方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    ソフトウェアのインストール
+  </a>
+  
+    <nav class="md-nav" aria-label="ソフトウェアのインストール">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gui" class="md-nav__link">
+    GUI アプリケーション
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fish-shell" class="md-nav__link">
+    fish shell
+  </a>
+  
+    <nav class="md-nav" aria-label="fish shell">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-fish" class="md-nav__link">
+    問題 1. fish がインストールされていないとターミナルが起動しなくなる
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-fish-bash-bash" class="md-nav__link">
+    問題 2. fish 上で bash と実行しても Bash に切り替わらない
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vim" class="md-nav__link">
+    Vim
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminator" class="md-nav__link">
+    Terminator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#linuxbrew" class="md-nav__link">
+    Linuxbrew
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    その他
+  </a>
+  
+    <nav class="md-nav" aria-label="その他">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#apt" class="md-nav__link">
+    apt で入るもの
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brew" class="md-nav__link">
+    brew で入るもの
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    カスタマイズ
+  </a>
+  
+    <nav class="md-nav" aria-label="カスタマイズ">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    ホームディレクトリのフォルダ名を英語にする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#capslock-ctrl" class="md-nav__link">
+    CapsLock を Ctrl にする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ターミナルで無限スクロールバックできるようにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    スクリーンショットのショートカットを変更する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    スワップファイルを拡張する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows とのデュアルブートで時計がずれるのを直す
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gnome-shell-extensions" class="md-nav__link">
+    便利な GNOME Shell Extensions をインストールする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/kenji-miyake/tech-articles/edit/main/docs/setup-ubuntu-2004.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>Setup ubuntu 2004</h1>
+
+<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<p>先日、Ubuntu 20.04 がリリースされましたね！<a href="https://wiki.ubuntu.com/FocalFossa/ReleaseNotes">リリースノート</a>によると、ついに Python のデフォルトバージョンが<code>3.8</code>になりました。
+大変おめでたいので、開発用 PC に Ubuntu 20.04 をセットアップした時のメモを、備忘録として残してみます。</p>
+<h3 id="_2">対象読者<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<ul>
+<li>Ubuntu をソフトウェア開発に使う方</li>
+<li>Ubuntu 初〜中級者</li>
+</ul>
+<h2 id="_3">目次<a class="headerlink" href="#_3" title="Permanent link">#</a></h2>
+<ul>
+<li><a href="#ubuntu-2004-のインストール">Ubuntu 20.04 のインストール</a></li>
+<li><a href="#nvidia-driver-のインストール">NVIDIA Driver のインストール</a></li>
+<li><a href="#ssh-公開鍵の生成と登録">SSH 公開鍵の生成と登録</a></li>
+<li><a href="#日本語入力の設定">日本語入力の設定</a></li>
+<li><a href="#ソフトウェアのインストール">ソフトウェアのインストール</a><ul>
+<li><a href="#gui-アプリケーション">GUI アプリケーション</a></li>
+<li><a href="#fish-shell">fish shell</a></li>
+<li><a href="#vim">Vim</a></li>
+<li><a href="#terminator">Terminator</a></li>
+<li><a href="#linuxbrew">Linuxbrew</a></li>
+<li><a href="#docker">Docker</a></li>
+<li><a href="#その他">その他</a></li>
+</ul>
+</li>
+<li><a href="#カスタマイズ">カスタマイズ</a><ul>
+<li><a href="#ホームディレクトリのフォルダ名を英語にする">ホームディレクトリのフォルダ名を英語にする</a></li>
+<li><a href="#capslock-を-ctrl-にする">CapsLock を Ctrl にする</a></li>
+<li><a href="#ターミナルで無限スクロールバックできるようにする">ターミナルで無限スクロールバックできるようにする</a></li>
+<li><a href="#スクリーンショットのショートカットを変更する">スクリーンショットのショートカットを変更する</a></li>
+<li><a href="#スワップファイルを拡張する">スワップファイルを拡張する</a></li>
+<li><a href="#windows-とのデュアルブートで時計がずれるのを直す">Windows とのデュアルブートで時計がずれるのを直す</a></li>
+<li><a href="#便利な-gnome-shell-extensions-をインストールする">便利な GNOME Shell Extensions をインストールする</a></li>
+</ul>
+</li>
+<li><a href="#まとめ">まとめ</a></li>
+</ul>
+<h2 id="ubuntu-2004">Ubuntu 20.04 のインストール<a class="headerlink" href="#ubuntu-2004" title="Permanent link">#</a></h2>
+<h3 id="_4">環境<a class="headerlink" href="#_4" title="Permanent link">#</a></h3>
+<p>Ubuntu だと相性問題も色々とあるかもしれないので、一応主要な情報を記載しておきます。
+こちらの構成で、特に問題なくインストールできました。</p>
+<ul>
+<li>OS: Ubuntu 20.04 Desktop</li>
+<li>CPU: Ryzen 9 3900X</li>
+<li>GPU: RTX 2070</li>
+<li>MB: X570 Taichi</li>
+</ul>
+<h3 id="iso">ISO ファイルのダウンロード<a class="headerlink" href="#iso" title="Permanent link">#</a></h3>
+<p><a href="https://ubuntu.com/download/desktop">こちら</a>からダウンロードします。</p>
+<p>様々な <a href="https://ubuntu.com/download/flavours">Ubuntu フレーバー</a>も存在するので、お好きなものを入れても良いと思います。
+個人的には<code>Ubuntu Budgie</code>は、便利な機能がたくさんありそうなので気になりました。</p>
+<h3 id="usb">インストール USB の作成<a class="headerlink" href="#usb" title="Permanent link">#</a></h3>
+<p>Windows だと<a href="https://rufus.ie/">Rufus</a>、Ubuntu だと<code>Super -&gt; "usb"で検索</code>して<code>Startup Disk Creator</code>が使えます。
+どちらも Ubuntu 公式にドキュメントがあります。</p>
+<ul>
+<li><a href="https://ubuntu.com/tutorials/tutorial-create-a-usb-stick-on-windows#1-overview">Windows</a></li>
+<li><a href="https://ubuntu.com/tutorials/tutorial-create-a-usb-stick-on-ubuntu#1-overview">Ubuntu</a></li>
+</ul>
+<h3 id="usb_1">USB から起動してインストール<a class="headerlink" href="#usb_1" title="Permanent link">#</a></h3>
+<p>事前に、BIOS で起動順を設定しておくか、手動で USB から起動して下さい。
+デュアルブートにする場合はパーティションの設定が必要ですが、それ以外は特にハマらないと思うので、ここの説明は省略します。</p>
+<h2 id="nvidia-driver">NVIDIA Driver のインストール<a class="headerlink" href="#nvidia-driver" title="Permanent link">#</a></h2>
+<p>ここはドライバのインストール以前に OS を起動する段階でハマる可能性が高いです。
+Ubuntu 18.04 では、インストール直後に GUI がバグっているため、CUI ログインをして作業が必要だったり、色々と苦しめられました…</p>
+<p>今回はすんなり起動してくれましたが、もしハマった人は、<a href="http://old-releases.ubuntu.com/releases/">古いバージョン</a>を入れてみると良いかもしれません。
+それでもダメな場合は、<code>Ubuntu NVIDIA ドライバ インストール</code>等でググると色々出てくるので、頑張って解決しましょう。</p>
+<p>さて、ドライバのインストールですが、いくつか方法があります。</p>
+<ol>
+<li><code>ubuntu-drivers</code>コマンドでインストールする</li>
+<li><code>Software &amp; Updates</code> の <code>Additional Drivers</code>からインストールする</li>
+<li>NVIDIA 公式からドライバをダウンロードしてインストールする</li>
+</ol>
+<p>詳細は、<a href="https://linuxconfig.org/how-to-install-the-nvidia-drivers-on-ubuntu-18-04-bionic-beaver-linux">こちら</a>に詳しく書いてあるので（Ubuntu 18.04 ですが）、ここでは 1 についてのみ説明します。</p>
+<h3 id="optional-ppa">(Optional) PPA を追加する<a class="headerlink" href="#optional-ppa" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+</code></pre></div>
+<h3 id="optional">(Optional) 推奨ドライバを確認する<a class="headerlink" href="#optional" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>$ ubuntu-drivers <span class="nv">devices</span>
+<span class="o">==</span> /sys/devices/pci0000:00/0000:00:03.1/0000:0d:00.0 <span class="o">==</span>
+modalias : pci:v000010DEd00001F07sv00001043sd00008670bc03sc00i00
+vendor   : NVIDIA Corporation
+model    : TU106 <span class="o">[</span>GeForce RTX <span class="m">2070</span> Rev. A<span class="o">]</span>
+driver   : nvidia-driver-440 - distro non-free recommended
+driver   : nvidia-driver-435 - distro non-free
+driver   : xserver-xorg-video-nouveau - distro free <span class="nb">builtin</span>
+</code></pre></div>
+<h3 id="_5">ドライバをインストールする<a class="headerlink" href="#_5" title="Permanent link">#</a></h3>
+<ul>
+<li>自動で推奨ドライバをインストールする場合</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo ubuntu-drivers autoinstall
+</code></pre></div>
+<ul>
+<li>手動でバージョン指定をしてインストールする場合</li>
+</ul>
+<div class="highlight"><pre><span></span><code>sudo apt install nvidia-driver-440
+</code></pre></div>
+<p>はい、これで完了です…とは残念ながらなりません。
+ドライバのインストール後に再起動したら、ログイン画面でループしてしまう可能性もあるため、再起動してログインできるまでが NVIDIA ドライバインストールです。</p>
+<p>ログインループにハマってしまった場合、違うバージョンのドライバを入れたり、
+<code>Ubuntu NVIDIA ドライバー</code> ＋ <code>blacklist nouveau / grub nomodeset / セキュアブート</code>あたりのワードで検索してみると、解決策が見つかるかもしれません。</p>
+<p>今回はこちらも、特にトラブルは発生しませんでした。平和な時代になったものです。</p>
+<p>最終的に、<code>nvidia-smi</code>を実行して GPU の情報が表示されれば完了です。</p>
+<div class="highlight"><pre><span></span><code>$ nvidia-smi
+Thu Apr <span class="m">30</span> <span class="m">02</span>:57:11 <span class="m">2020</span>
++-----------------------------------------------------------------------------+
+<span class="p">|</span> NVIDIA-SMI <span class="m">440</span>.64       Driver Version: <span class="m">440</span>.64       CUDA Version: <span class="m">10</span>.2     <span class="p">|</span>
+<span class="p">|</span>-------------------------------+----------------------+----------------------+
+<span class="p">|</span> GPU  Name        Persistence-M<span class="p">|</span> Bus-Id        Disp.A <span class="p">|</span> Volatile Uncorr. ECC <span class="p">|</span>
+<span class="p">|</span> Fan  Temp  Perf  Pwr:Usage/Cap<span class="p">|</span>         Memory-Usage <span class="p">|</span> GPU-Util  Compute M. <span class="p">|</span>
+<span class="p">|</span><span class="o">===============================</span>+<span class="o">======================</span>+<span class="o">======================</span><span class="p">|</span>
+<span class="p">|</span>   <span class="m">0</span>  GeForce RTX <span class="m">2070</span>    Off  <span class="p">|</span> <span class="m">00000000</span>:0D:00.0  On <span class="p">|</span>                  N/A <span class="p">|</span>
+<span class="p">|</span> <span class="m">26</span>%   31C    P8     9W / 215W <span class="p">|</span>   1210MiB /  7979MiB <span class="p">|</span>      <span class="m">3</span>%      Default <span class="p">|</span>
++-------------------------------+----------------------+----------------------+
+</code></pre></div>
+<h2 id="ssh">SSH 公開鍵の生成と登録<a class="headerlink" href="#ssh" title="Permanent link">#</a></h2>
+<div class="highlight"><pre><span></span><code>ssh-keygen -t rsa -b <span class="m">4096</span>
+cat ~/.ssh/id_rsa.pub
+</code></pre></div>
+<p>表示された公開鍵をコピペして登録して下さい。</p>
+<ul>
+<li><a href="https://github.com/settings/keys">GitHub</a></li>
+<li><a href="https://gitlab.com/profile/keys">GitLab</a></li>
+</ul>
+<h2 id="_6">日本語入力の設定<a class="headerlink" href="#_6" title="Permanent link">#</a></h2>
+<p>何通りか方法があります。
+<a href="https://www.ubuntulinux.jp/download/ja-remix">日本語 Remix</a>をインストールした場合は、特に設定不要のはずです。</p>
+<h3 id="option1">Option1. インプットメソッドフレームワークの選択<a class="headerlink" href="#option1" title="Permanent link">#</a></h3>
+<ol>
+<li><code>iBus</code></li>
+<li><code>Fcitx</code></li>
+<li>その他</li>
+</ol>
+<p>個人的には、JIS キーボードなら <code>iBus</code> で良いかと思います。
+US キーボードの場合は、<code>Fcitx</code> だと Alt の空打ちで 日本語入力 ON/OFF の切り替えができるそうなので、便利かもしれません。
+<code>Fcitx</code> の設定については、<a href="https://kledgeb.blogspot.com/2013/12/ubuntu-fcitx-10-fcitx.html">こちら</a>が分かりやすかったです。</p>
+<h3 id="option2-onoff">Option2. 日本語入力 ON/OFF の切り替え方法<a class="headerlink" href="#option2-onoff" title="Permanent link">#</a></h3>
+<ol>
+<li>インプットメソッドフレームワークで切り替える</li>
+<li>IME (<code>Mozc</code>) 単体で切り替える</li>
+</ol>
+<p>1 は、<code>インプットメソッドフレームワーク側でキーボードを2種類用意しておき、Mozcは常に日本語入力ON、もう一方は常にOFFで切り替える</code>というイメージです。
+僕は 2 を使っています。Mac 風にしたい方は、以下のような設定をしておくと便利です。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="mozc settings" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/4ad4f0bf-cf38-c3fe-b2ff-a7bd51569f4f.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code>Mozc</code> で JIS キーボードなのに US キーボードとして認識されてしまう場合は、<code>/usr/share/ibus/component/mozc.xml</code>を編集すれば治ります。</p>
+<div class="highlight"><pre><span></span><code><span class="gd">- &lt;layout&gt;default&lt;/layout&gt;</span><span class="w"></span>
+<span class="gi">+ &lt;layout&gt;jp&lt;/layout&gt;</span><span class="w"></span>
+</code></pre></div>
+<p><a href="#terminator">Terminator</a>の項にも書いてありますが、<code>ibus-setup</code> -&gt; Emoji で<code>Ctrl-Shift-E</code>を<code>Ctrl-Shift-Alt-E</code>あたりに変更しておくと良いと思います。</p>
+<h2 id="_7">ソフトウェアのインストール<a class="headerlink" href="#_7" title="Permanent link">#</a></h2>
+<h3 id="gui">GUI アプリケーション<a class="headerlink" href="#gui" title="Permanent link">#</a></h3>
+<p>特に解説はしませんが、リンクだけ書いておきます。</p>
+<ul>
+<li><a href="https://www.google.com/intl/ja_jp/chrome/">Chrome</a></li>
+<li><a href="https://slack.com/intl/ja-jp/downloads/linux">Slack</a></li>
+<li><a href="https://code.visualstudio.com/download">VSCode</a></li>
+<li><a href="https://www.videolan.org/vlc/download-ubuntu.html">VLC</a></li>
+</ul>
+<p><code>apt</code>と<code>snap</code>どちらでもインストールができるものが多いですが、<code>snap</code>版だと日本語入力ができない不具合もあるそうなので、僕は<code>snap</code>推奨のもの以外は<code>apt</code>で入れています。</p>
+<p>仕事用と個人用でブラウザのプロファイルを分けたい方は、Chrome の他に、<a href="https://www.google.com/intl/ja/chrome/beta/">Chrome Beta</a> もインストールするのがオススメです。
+Ubuntu 版 の Chrome 単体では、Windows 版 のように上手くプロファイル管理をしてくれないと感じたためです。</p>
+<p>参考までに僕の使っているものを載せてみます。必要なものだけインストールしてください。
+最初に <code>sudo apt install git curl</code> くらいはしておくと、色々とスムーズにインストールできると思います。</p>
+<h3 id="fish-shell">fish shell<a class="headerlink" href="#fish-shell" title="Permanent link">#</a></h3>
+<p>機能豊富で設定も少なくて済む、ミニマリストにピッタリの Shell です。
+プラグイン管理の <a href="https://github.com/jorgebucaran/fisher">Fisher</a> と、便利なプラグインもいくつか一緒に入れると良いです。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fish Shell</span>
+sudo apt install fish
+
+<span class="c1"># Fisher</span>
+curl -sL git.io/fisher <span class="p">|</span> <span class="nb">source</span> <span class="o">&amp;&amp;</span> fisher install jorgebucaran/fisher
+
+<span class="c1"># Plugins</span>
+fish -c <span class="s2">&quot;fisher install rafaelrinaldi/pure oh-my-fish/plugin-pbcopy edc/bass jethrokuan/z jethrokuan/fzf decors/fish-ghq&quot;</span>
+sudo apt install fzf
+</code></pre></div>
+<p><code>chsh</code> でログインシェルを変更しても良いですが、色々とハマりポイントもあるのと、<code>Bash</code> との併用のために環境変数を共通化したいので、僕は以下のように <code>.bashrc</code> で <code>fish</code> を呼び出しています。</p>
+<p>（<a href="http://wiki.ros.org">ROS</a>を使っていると、ツール周りのサポートの関係で、<code>基本はfishを使いつつ、必要な時はBashも使いたい</code>ことが結構あるんですよね。）</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.bashrc</span>
+
+<span class="c1"># If not running interactively, don&#39;t do anything</span>
+<span class="k">case</span> <span class="nv">$-</span> <span class="k">in</span>
+    *i*<span class="o">)</span> <span class="p">;;</span>
+      *<span class="o">)</span> <span class="k">return</span><span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="c1"># Original .bashrc</span>
+<span class="nb">source</span> /etc/skel/.bashrc
+
+<span class="c1"># Fish Shell</span>
+<span class="nb">exec</span> fish
+</code></pre></div>
+<blockquote>
+<p>参考</p>
+<p><code>source /etc/skel/.bashrc</code> の部分は、元々の <code>.bashrc</code> が長くて見通しが悪いので置き換えています。スッキリするのでオススメです。
+先頭の <code># If not running interactively, don't do anything</code> は消すと問題が起きるので残しましょう。</p>
+</blockquote>
+<p>上記は簡単にするために省略して書きましたが、このままだと問題があります。</p>
+<h4 id="1-fish">問題 1. <code>fish</code> がインストールされていないとターミナルが起動しなくなる<a class="headerlink" href="#1-fish" title="Permanent link">#</a></h4>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.bashrc</span>
+
+<span class="nb">command</span> -v fish &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> fish
+</code></pre></div>
+<h4 id="2-fish-bash-bash">問題 2. <code>fish</code> 上で <code>bash</code> と実行しても <code>Bash</code> に切り替わらない<a class="headerlink" href="#2-fish-bash-bash" title="Permanent link">#</a></h4>
+<p>以下のようなハックで回避できます。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.config/fish/config.fish</span>
+
+<span class="nb">alias</span> <span class="nv">bash</span><span class="o">=</span><span class="s1">&#39;env FISH_VERSION=$FISH_VERSION bash&#39;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.bashrc</span>
+
+<span class="k">if</span> <span class="o">[</span> -z <span class="s2">&quot;</span><span class="nv">$FISH_VERSION</span><span class="s2">&quot;</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+  <span class="nb">command</span> -v fish &gt; /dev/null <span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="o">&amp;&amp;</span> <span class="nb">exec</span> fish
+<span class="k">fi</span>
+</code></pre></div>
+<h3 id="vim">Vim<a class="headerlink" href="#vim" title="Permanent link">#</a></h3>
+<p>クリップボード連携機能が必要な場合は <code>vim-gtk3</code> をインストールして、<code>~/.vimrc</code> に <code>set clipboard=unnamedplus</code> を追加します。
+以前は <code>vim-gnome</code> もありましたが、廃止されたようですね。</p>
+<div class="highlight"><pre><span></span><code>sudo apt install vim-gtk3
+</code></pre></div>
+<h3 id="terminator">Terminator<a class="headerlink" href="#terminator" title="Permanent link">#</a></h3>
+<p>分割できるターミナルです。デフォルトで使い勝手が良いので使っています。
+<code>Ctrl-Shift-E / Ctrl-Shift-O / Ctrl-Shift-X</code> だけ覚えておけば何とかなります。</p>
+<div class="highlight"><pre><span></span><code>sudo apt install terminator
+</code></pre></div>
+<p><a href="https://askubuntu.com/questions/1083913/what-does-ctrl-shift-e-do-while-typing-text">Ctrl-Shift-E が絵文字にアサインされていたので</a>、違うものに変更した方が良さそうです。</p>
+<h3 id="linuxbrew">Linuxbrew<a class="headerlink" href="#linuxbrew" title="Permanent link">#</a></h3>
+<p><code>apt</code> だと配布されていない or バージョンが古いソフトをインストールする場合に便利です。</p>
+<div class="highlight"><pre><span></span><code>/bin/bash -c <span class="s2">&quot;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="k">)</span><span class="s2">&quot;</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># ~/.bashrc</span>
+
+<span class="nb">test</span> -d /home/linuxbrew/.linuxbrew <span class="o">&amp;&amp;</span> <span class="nb">eval</span> <span class="k">$(</span>/home/linuxbrew/.linuxbrew/bin/brew shellenv<span class="k">)</span>
+</code></pre></div>
+<h3 id="docker">Docker<a class="headerlink" href="#docker" title="Permanent link">#</a></h3>
+<p><a href="https://stackoverflow.com/questions/45023363/what-is-docker-io-in-relation-to-docker-ce-and-docker-ee">これも色々とインストール方法があってややこしい</a>のですが、今回は<a href="https://linuxconfig.org/how-to-install-docker-on-ubuntu-20-04-lts-focal-fossa">こちらの方法</a>でインストールしました。</p>
+<p><code>curl -fsSL https://get.docker.com | sh</code>でも良いと思います。</p>
+<p>GPU を使う場合は<a href="https://github.com/NVIDIA/nvidia-docker/tree/master#quickstart">ここ</a>を見て<code>nvidia-container-toolkit</code>をインストールします。</p>
+<h3 id="_8">その他<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<p>その他インストールしたソフトの名前と一言コメントだけ書いておきます。
+最初に入れておかなくても、必要になったらその場でインストールすれば良いです。</p>
+<h4 id="apt">apt で入るもの<a class="headerlink" href="#apt" title="Permanent link">#</a></h4>
+<ul>
+<li><code>flameshot</code>: スクショを撮って画像を加工できます</li>
+<li><code>peek</code>: GIF を撮るのに便利です</li>
+<li><code>simplescreenrecorder</code>: GIF 以外はこっちを使っています</li>
+<li><code>ffmpeg</code>: 撮影した動画をさくっと圧縮するのに便利です</li>
+<li><code>silversearcher-ag</code>: <code>grep</code> はもう使っていられない…</li>
+<li><code>mlocate</code>: <code>locate</code>が使えるようになります</li>
+<li><code>bat</code>: いい感じにシンタックスハイライトして<code>cat</code>してくれます（<code>apt</code>版だとコマンドは<code>batcat</code>です）</li>
+<li><code>fd-find</code>: <code>find</code> のオプションも僕には難しすぎるので…（<code>apt</code>版だとコマンドは<code>fdfind</code>です）</li>
+<li><code>fzf</code>: これ単体で使うことは少ないですが、色んなツールが依存していたりします</li>
+<li><code>tig</code>: TUI で Git ログを見れます</li>
+<li><code>tree</code>: ディレクトリ構造を見れます</li>
+<li><code>xsel</code>: 標準出力をクリップボードにコピーできます（<code>pbcopy</code> のエイリアスを作るのがオススメです）</li>
+<li><code>htop</code>: これを表示させているだけで仕事している感が出るとか出ないとか</li>
+<li><code>jq</code>: JSON ファイルから何かを抽出したい時（ほとんどの人は滅多になさそう）に使えます</li>
+</ul>
+<h4 id="brew">brew で入るもの<a class="headerlink" href="#brew" title="Permanent link">#</a></h4>
+<ul>
+<li><code>ripgrep</code>: <code>ag</code> に飽きた方へ（あまり使ってないです）</li>
+<li><code>sd</code>: <code>sed</code> の使い方イマイチわからん人でも使えると思います</li>
+<li><code>ghq</code>: <code>git clone</code> 時にどこに置くか考えなくて良くなるので便利です</li>
+<li><code>yq</code>: <code>jq</code> の YAML 版です</li>
+</ul>
+<h2 id="_9">カスタマイズ<a class="headerlink" href="#_9" title="Permanent link">#</a></h2>
+<h3 id="_10">ホームディレクトリのフォルダ名を英語にする<a class="headerlink" href="#_10" title="Permanent link">#</a></h3>
+<p>これをしないと実質 <code>cd</code> できないので、必ず設定した方が良いです。</p>
+<div class="highlight"><pre><span></span><code><span class="nv">LANG</span><span class="o">=</span>C xdg-user-dirs-gtk-update
+</code></pre></div>
+<h3 id="capslock-ctrl">CapsLock を Ctrl にする<a class="headerlink" href="#capslock-ctrl" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>sudo apt install gnome-tweaks
+gnome-tweaks
+</code></pre></div>
+<p>で <code>gnome-tweaks</code> を開き、以下の箇所で設定できます。念の為 2 つ設定しています。</p>
+<ul>
+<li>Keyboard &amp; Mouse -&gt; Additional Layout Options<ul>
+<li>Ctrl Position -&gt; Caps Lock as Ctrl</li>
+<li>Caps Lock behavior -&gt; Caps Lock is also a Ctrl</li>
+</ul>
+</li>
+</ul>
+<p>または、以下のコマンドでも変更できます。</p>
+<div class="highlight"><pre><span></span><code>gsettings <span class="nb">set</span> org.gnome.desktop.input-sources xkb-options <span class="s2">&quot;[&#39;ctrl:nocaps&#39;, &#39;caps:ctrl_modifier&#39;]&quot;</span>
+</code></pre></div>
+<p>どうやら不具合でこの設定が無効化されてしまうことがあるようですが、<code>Alt+F2</code> -&gt; <code>r</code> -&gt; <code>Enter</code>をすれば直るようです。
+<a href="https://askubuntu.com/questions/1286997/caps-lock-remapping-stops-working">https://askubuntu.com/questions/1286997/caps-lock-remapping-stops-working</a></p>
+<h3 id="_11">ターミナルで無限スクロールバックできるようにする<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
+<p>デフォルト値だと、ログメッセージが途切れてしまうことが多いので、設定した方が良いです。
+<code>Terminator</code> だと以下のように設定できます。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="infinite scrollback" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/e5fd6b33-e20c-103f-8ca4-e712054c2f01.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_12">スクリーンショットのショートカットを変更する<a class="headerlink" href="#_12" title="Permanent link">#</a></h3>
+<p>ご自分の用途に合わせて、好きなように設定すれば良いです。
+僕は<code>選択範囲をクリップボードにコピーしてSlackに貼り付ける</code>ことが多いので、それに <code>PrintScreen</code> を割り当てています。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="screenshot shortcut" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/89706539-2000-75d2-ac49-1066053da714.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><a href="https://github.com/lupoDharkael/flameshot">flameshot</a>を使う方は、以下のように既存のショートカットを無効化し、<code>flameshot</code>のショートカットを追加すると良いでしょう。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="disable default screenshot" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/82df0e04-416e-9a00-c617-9e3a698b0c94.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="add flameshot shortcut" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/e4e3a63b-4517-6a28-0f19-24094d50facb.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_13">スワップファイルを拡張する<a class="headerlink" href="#_13" title="Permanent link">#</a></h3>
+<p>増やしておくと安心です。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># (Check swapfile)</span>
+free -h
+
+<span class="c1"># Remove current swapfile</span>
+sudo swapoff /swapfile
+sudo rm /swapfile
+
+<span class="c1"># Create new swapfile</span>
+sudo fallocate -l 32G /swapfile
+sudo chmod <span class="m">600</span> /swapfile
+sudo mkswap /swapfile
+sudo swapon /swapfile
+
+<span class="c1"># (Check swapfile again)</span>
+free -h
+</code></pre></div>
+<h3 id="windows">Windows とのデュアルブートで時計がずれるのを直す<a class="headerlink" href="#windows" title="Permanent link">#</a></h3>
+<p>時計がずれると気になる人は設定してみて下さい。</p>
+<div class="highlight"><pre><span></span><code>sudo timedatectl set-local-rtc <span class="nb">true</span>
+</code></pre></div>
+<h3 id="gnome-shell-extensions">便利な GNOME Shell Extensions をインストールする<a class="headerlink" href="#gnome-shell-extensions" title="Permanent link">#</a></h3>
+<div class="highlight"><pre><span></span><code>sudo apt install chrome-gnome-shell
+</code></pre></div>
+<p>をしてから、Firefox か Chrome で <a href="https://extensions.gnome.org/">ここ</a>を開くと、便利な拡張機能がインストールできます。
+<code>Click here to install browser extension.</code> と表示されていたらクリックして、ブラウザ拡張をインストールして下さい。
+拡張機能のページで、以下のようにボタンを<code>ON</code>にするとインストールされます。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="gnome shell extensions" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/3839638e-e965-ed39-1504-34b938b0be73.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>設定用アプリは、<code>extensions</code> で検索すると出てきます。 <code>Tweaks</code> からでも設定できます。</p>
+<table>
+<thead>
+<tr>
+<th align="center"><img alt="search extensions" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/06c2e44e-2d42-4ec0-a8c9-424d4838bd78.png" /></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>僕は以下のものをインストールしています。</p>
+<ul>
+<li><a href="https://extensions.gnome.org/extension/1160/dash-to-panel/">Dash to Panel</a></li>
+<li><a href="https://extensions.gnome.org/extension/97/coverflow-alt-tab/">Coverflow Alt-Tab</a></li>
+<li><a href="https://extensions.gnome.org/extension/1723/wintile-windows-10-window-tiling-for-gnome/">WinTile</a></li>
+</ul>
+<p><a href="https://itsfoss.com/best-gnome-extensions/">このへん</a>を見て、自分に合うものを探してみて下さい。</p>
+<h2 id="_14">まとめ<a class="headerlink" href="#_14" title="Permanent link">#</a></h2>
+<p>自分の開発用 PC セットアップ方法を整理してみました。もし誰かのお役に立てば幸いです。
+詳細までは書ききれなかったとこも多いので、気になる方はご自身で深く調べてみて下さい。</p>
+<p>他にもオススメの設定があれば、コメント欄でぜひ教えて下さい！</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: kenji-miyake&#39;s Tech Articles" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              kenji-miyake's Tech Articles
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../setup-ubuntu-2204/" class="md-footer__link md-footer__link--next" aria-label="Next: Ubuntu 22.04 セットアップ" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Ubuntu 22.04 セットアップ
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Kenji Miyake
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

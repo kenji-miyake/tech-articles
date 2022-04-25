@@ -1,0 +1,1724 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://kenji-miyake.github.io/tech-articles/pr-4/setup-vscode/">
+      
+      <link rel="icon" href="../assets/images/icon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.11">
+    
+    
+      
+        <title>Setup vscode - kenji-miyake's Tech Articles</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.8c5ef100.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.9647289d.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/css/extra.css">
+    
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
+    <script>__md_scope=new URL("..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        <aside class="md-banner md-banner--warning">
+          
+        </aside>
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="kenji-miyake&#39;s Tech Articles" class="md-header__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            kenji-miyake's Tech Articles
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Setup vscode
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5c-.84 0-1.65.15-2.39.42L12 2M3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29L3.34 7m.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14L3.36 17M20.65 7l-1.77 3.79a7.023 7.023 0 0 0-2.38-4.15l4.15.36m-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29L20.64 17M12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44L12 22Z"/></svg>
+            </label>
+          
+        
+          
+          
+          <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="grey" data-md-color-accent=""  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href=".." class="md-tabs__link">
+      kenji-miyake's Tech Articles
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../setup-ubuntu-2004/" class="md-tabs__link">
+      Setup ubuntu 2004
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../setup-ubuntu-2204/" class="md-tabs__link">
+      Ubuntu 22.04 セットアップ
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Setup vscode
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="kenji-miyake&#39;s Tech Articles" class="md-nav__button md-logo" aria-label="kenji-miyake's Tech Articles" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M39.61 196.8 74.8 96.29C88.27 57.78 124.6 32 165.4 32h181.2c40.8 0 77.1 25.78 90.6 64.29l35.2 100.51c23.2 9.6 39.6 32.5 39.6 59.2v192c0 17.7-14.3 32-32 32h-32c-17.7 0-32-14.3-32-32v-48H96v48c0 17.7-14.33 32-32 32H32c-17.67 0-32-14.3-32-32V256c0-26.7 16.36-49.6 39.61-59.2zm69.49-4.8h293.8l-26.1-74.6c-4.5-12.8-16.6-21.4-30.2-21.4H165.4c-13.6 0-25.7 8.6-30.2 21.4L109.1 192zM96 256c-17.67 0-32 14.3-32 32s14.33 32 32 32c17.7 0 32-14.3 32-32s-14.3-32-32-32zm320 64c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32z"/></svg>
+
+    </a>
+    kenji-miyake's Tech Articles
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/kenji-miyake/tech-articles" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        kenji-miyake's Tech Articles
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-ubuntu-2004/" class="md-nav__link">
+        Setup ubuntu 2004
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup-ubuntu-2204/" class="md-nav__link">
+        Ubuntu 22.04 セットアップ
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Setup vscode
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Setup vscode
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCode をインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基本操作方法を確認する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拡張機能をインストールする
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ツール系
+  </a>
+  
+    <nav class="md-nav" aria-label="ツール系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-sync" class="md-nav__link">
+    Settings Sync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-graph" class="md-nav__link">
+    Git Graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlens-git-supercharged" class="md-nav__link">
+    GitLens — Git supercharged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-containers" class="md-nav__link">
+    Remote - Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-lines" class="md-nav__link">
+    Sort lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todo-tree" class="md-nav__link">
+    Todo Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks" class="md-nav__link">
+    Bookmarks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    UI 系
+  </a>
+  
+    <nav class="md-nav" aria-label="UI 系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#japanese-language-pack-for-visual-studio-code" class="md-nav__link">
+    Japanese Language Pack for Visual Studio Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode-icons" class="md-nav__link">
+    vscode-icons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indent-rainbow" class="md-nav__link">
+    indent-rainbow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bracket-pair-colorizer-2" class="md-nav__link">
+    Bracket Pair Colorizer 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rainbow-csv" class="md-nav__link">
+    Rainbow CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#better-comments" class="md-nav__link">
+    Better Comments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    エディタ系
+  </a>
+  
+    <nav class="md-nav" aria-label="エディタ系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editorconfig-for-vs-code" class="md-nav__link">
+    EditorConfig for VS Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-spell-checker" class="md-nav__link">
+    Code Spell Checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-intellisense" class="md-nav__link">
+    Path Intellisense
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trailing-spaces" class="md-nav__link">
+    Trailing Spaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlight-bad-chars" class="md-nav__link">
+    Highlight Bad Chars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    言語系
+  </a>
+  
+    <nav class="md-nav" aria-label="言語系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prettier-code-formatter" class="md-nav__link">
+    Prettier - Code formatter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-all-in-one" class="md-nav__link">
+    Markdown All in One
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdownlint" class="md-nav__link">
+    markdownlint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-preview-mermaid-support" class="md-nav__link">
+    Markdown Preview Mermaid Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plantuml" class="md-nav__link">
+    PlantUML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-tools" class="md-nav__link">
+    XML Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cc" class="md-nav__link">
+    C/C++
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpplint" class="md-nav__link">
+    cpplint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-intellicode" class="md-nav__link">
+    Visual Studio IntelliCode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    ROS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    設定を変更する
+  </a>
+  
+    <nav class="md-nav" aria-label="設定を変更する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ファイル保存時にフォーマットする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    既定のフォーマッタを設定する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    ファイル末尾に改行を挿入する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    ファイル末尾の不要な改行を削除する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetch" class="md-nav__link">
+    自動 git fetch する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-sign-off" class="md-nav__link">
+    git commit 時に常に Sign Off する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetch-prune" class="md-nav__link">
+    git fetch 時に prune する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    ソース管理プロバイダーを常に表示する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    ソース管理パネルで常にアクションを表示する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    統合ターミナルのスクロールバック上限を増やす
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    キーボードショートカットを変更する
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカットを変更する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctrl-f" class="md-nav__link">
+    統合ターミナルでCtrl + Fが使えるようにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctrl-shift-tab" class="md-nav__link">
+    Ctrl + (Shift) + Tabですぐにタブ移動する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    前に戻る/次へ進むを使いやすくする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    概要
+  </a>
+  
+    <nav class="md-nav" aria-label="概要">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    環境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    対象読者
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vscode" class="md-nav__link">
+    VSCode をインストールする
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    基本操作方法を確認する
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    拡張機能をインストールする
+  </a>
+  
+    <nav class="md-nav" aria-label="拡張機能をインストールする">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    ツール系
+  </a>
+  
+    <nav class="md-nav" aria-label="ツール系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#settings-sync" class="md-nav__link">
+    Settings Sync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-graph" class="md-nav__link">
+    Git Graph
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gitlens-git-supercharged" class="md-nav__link">
+    GitLens — Git supercharged
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remote-containers" class="md-nav__link">
+    Remote - Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    Docker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-lines" class="md-nav__link">
+    Sort lines
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#todo-tree" class="md-nav__link">
+    Todo Tree
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bookmarks" class="md-nav__link">
+    Bookmarks
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ui" class="md-nav__link">
+    UI 系
+  </a>
+  
+    <nav class="md-nav" aria-label="UI 系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#japanese-language-pack-for-visual-studio-code" class="md-nav__link">
+    Japanese Language Pack for Visual Studio Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vscode-icons" class="md-nav__link">
+    vscode-icons
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indent-rainbow" class="md-nav__link">
+    indent-rainbow
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bracket-pair-colorizer-2" class="md-nav__link">
+    Bracket Pair Colorizer 2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rainbow-csv" class="md-nav__link">
+    Rainbow CSV
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#better-comments" class="md-nav__link">
+    Better Comments
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    エディタ系
+  </a>
+  
+    <nav class="md-nav" aria-label="エディタ系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#editorconfig-for-vs-code" class="md-nav__link">
+    EditorConfig for VS Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-spell-checker" class="md-nav__link">
+    Code Spell Checker
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#path-intellisense" class="md-nav__link">
+    Path Intellisense
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trailing-spaces" class="md-nav__link">
+    Trailing Spaces
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#highlight-bad-chars" class="md-nav__link">
+    Highlight Bad Chars
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    言語系
+  </a>
+  
+    <nav class="md-nav" aria-label="言語系">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prettier-code-formatter" class="md-nav__link">
+    Prettier - Code formatter
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-all-in-one" class="md-nav__link">
+    Markdown All in One
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdownlint" class="md-nav__link">
+    markdownlint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#markdown-preview-mermaid-support" class="md-nav__link">
+    Markdown Preview Mermaid Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plantuml" class="md-nav__link">
+    PlantUML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#xml-tools" class="md-nav__link">
+    XML Tools
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cc" class="md-nav__link">
+    C/C++
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cpplint" class="md-nav__link">
+    cpplint
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cmake" class="md-nav__link">
+    CMake
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    Python
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#visual-studio-intellicode" class="md-nav__link">
+    Visual Studio IntelliCode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros" class="md-nav__link">
+    ROS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    設定を変更する
+  </a>
+  
+    <nav class="md-nav" aria-label="設定を変更する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    ファイル保存時にフォーマットする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    既定のフォーマッタを設定する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    ファイル末尾に改行を挿入する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    ファイル末尾の不要な改行を削除する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetch" class="md-nav__link">
+    自動 git fetch する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-commit-sign-off" class="md-nav__link">
+    git commit 時に常に Sign Off する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-fetch-prune" class="md-nav__link">
+    git fetch 時に prune する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    ソース管理プロバイダーを常に表示する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    ソース管理パネルで常にアクションを表示する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    統合ターミナルのスクロールバック上限を増やす
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    キーボードショートカットを変更する
+  </a>
+  
+    <nav class="md-nav" aria-label="キーボードショートカットを変更する">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ctrl-f" class="md-nav__link">
+    統合ターミナルでCtrl + Fが使えるようにする
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ctrl-shift-tab" class="md-nav__link">
+    Ctrl + (Shift) + Tabですぐにタブ移動する
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    前に戻る/次へ進むを使いやすくする
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    まとめ
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+  <a href="https://github.com/kenji-miyake/tech-articles/edit/main/docs/setup-vscode.md" title="Edit this page" class="md-content__button md-icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
+
+
+  <h1>Setup vscode</h1>
+
+<h2 id="_1">概要<a class="headerlink" href="#_1" title="Permanent link">#</a></h2>
+<p>先日、新しい PC を購入して、<a href="https://qiita.com/kenji-miyake/items/06b8c3807bef0ba5c451">Ubuntu 20.04 をセットアップ</a>しました。
+いつもは<a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">Settings Sync</a>を使って終わらせる VSCode のセットアップですが、ちょうど良い機会なので、一度整理してみます。</p>
+<p>基本的に言語非依存の設定を行いますが、一部<a href="http://wiki.ros.org/">ROS</a>関連が強いのものも含みます。</p>
+<h3 id="_2">環境<a class="headerlink" href="#_2" title="Permanent link">#</a></h3>
+<ul>
+<li>Ubuntu 20.04</li>
+<li>VSCode 1.44.2</li>
+</ul>
+<p>OS によって若干ショートカットキーが異なると思いますが、いい感じに読み替えて下さい。</p>
+<h3 id="_3">対象読者<a class="headerlink" href="#_3" title="Permanent link">#</a></h3>
+<ul>
+<li>新人エンジニアの方</li>
+<li>VSCode の使い方がいまいちわからない方</li>
+<li>ROS 開発をされている方</li>
+</ul>
+<h2 id="vscode">VSCode をインストールする<a class="headerlink" href="#vscode" title="Permanent link">#</a></h2>
+<p><a href="https://code.visualstudio.com/download">公式</a>から<code>.deb</code>をダウンロードしてインストールして下さい。
+<code>snap</code>でもインストールできますが、日本語入力できない問題があると見かけたので、僕は試していないです。</p>
+<h2 id="_4">基本操作方法を確認する<a class="headerlink" href="#_4" title="Permanent link">#</a></h2>
+<p>馴染みのない方のために、簡単に紹介してみます。</p>
+<p>VSCode を起動後、1 つのタブも開かれていない状態にする（Welcome ページも閉じる）と、以下のような画面が表示されると思います。
+これらのコマンドは、全部とても便利なので覚えましょう。</p>
+<ul>
+<li><code>Ctrl + Shift + P</code>: 困ったらこれ</li>
+<li><code>Ctrl + P</code>: 大規模プロジェクトでファイル移動する時に、いちいちエクスプローラーのツリーから辿らなくて良いので便利です</li>
+<li><code>Ctrl + Shift + F</code>: 高速にファイル内検索してくれます</li>
+<li><code>F5</code>: 事前に設定が必要ですが、設定していない場合は拡張機能の設定をベースにして、<code>launch.json</code>を作ってくれます</li>
+<li><code>Ctrl + Shift + @</code>: 統合ターミナルに出る Path を<code>Ctrl + クリック</code>すると VSCode で開いてくれるのとか、めっちゃ便利です</li>
+</ul>
+<p><img alt="vscode" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/45d5e0c3-dd00-8e1f-56d5-e2eed68886f6.png" /></p>
+<p>これ以外は、<code>Ctrl + Shift + P</code>で検索すれば大体何とかなります。
+例えば、ファイルにフォーマットをかけたい時は、<code>Format</code>と検索すれば出てきます。
+ショートカットコマンドもここに書いてあるので、何度も実行するなと感じてきたら覚えれば大丈夫です。</p>
+<p><img alt="find format" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/23279f06-33dd-3023-aee6-e6abcc86bd39.png" /></p>
+<p>ちなみに、フォーマットを実行したのにフォーマッタが入っていない場合は、コマンドを実行すると右下にポップアップが出てくるので、クリックしてそれっぽい拡張機能を入れると良いでしょう。</p>
+<p><img alt="no formatter found" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/d4ffe806-ed66-fdca-eeff-b31931cd0c50.png" /></p>
+<p>更に便利な機能を知りたい方は、<code>Ctrl + Shift + P</code>で Welcome ページを開き、<code>対話型プレイグランド</code>で学んでみると良さそうですね。
+（そう言いつつ自分はやったことないので、後でやってみようと思います。）</p>
+<p><img alt="find welcome" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/69243862-91ed-f9ad-a08e-d1bf9d9ae433.png" /></p>
+<p><img alt="welcome" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/e2ff1ee2-b0a5-47fd-9164-e5a926c18981.png" /></p>
+<p>最初に載っているマルチカーソルなんかは、使いこなせると便利＆気持ちいいので、ぜひ習得してみて下さい。</p>
+<p><img alt="playground" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/a92f96f5-d61d-e265-1466-96af5f9e9eb7.png" /></p>
+<p><a href="https://code.visualstudio.com/updates">公式の更新情報</a>にも目を通しておくと、最新機能にいち早く気付けるかと。
+バージョンアップされた際、VSCode の起動後に表示されるページですね。</p>
+<h2 id="_5">拡張機能をインストールする<a class="headerlink" href="#_5" title="Permanent link">#</a></h2>
+<p><code>VSCode 拡張機能 おすすめ</code>等で検索すると、様々な拡張機能を丁寧に解説した記事がたくさん見つかるので、
+ここでは僕がインストールしているものを簡単に紹介するだけにします。決して面倒なわけではないです、決して。
+他にも便利な拡張機能を知りたい方は、<a href="https://github.com/viatsko/awesome-vscode">awesome-vscode</a>とかで調べてみると良いと思います。</p>
+<p>少し大変にはなりますが、一気に全てインストールするのではなく、<strong>1 つ 1 つ挙動を確認しながらインストールしていくのがオススメ</strong>です。</p>
+<p>また余談ですが、1 個 1 個 Markdown 形式のリンクに直すのはだるいので、以下のようなブックマークレットを書いて使うと良いですね。
+拡張機能の Web ページを開くのは、VSCode 上で拡張機能名のところをクリックすれば良いです。</p>
+<ul>
+<li>リンク取得用</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">javascript</span><span class="o">:</span> <span class="nx">name</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.ux-item-name&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="p">;</span>
+<span class="nx">url</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">URL</span><span class="p">;</span>
+<span class="nx">text</span> <span class="o">=</span> <span class="sb">`[</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">](</span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+<span class="nx">area</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;textarea&quot;</span><span class="p">);</span>
+<span class="nx">area</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">text</span><span class="p">;</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+<span class="nx">area</span><span class="p">.</span><span class="nx">select</span><span class="p">();</span>
+<span class="nb">document</span><span class="p">.</span><span class="nx">execCommand</span><span class="p">(</span><span class="s2">&quot;copy&quot;</span><span class="p">);</span>
+</code></pre></div>
+<ul>
+<li>画像取得用（ブックマークレット実行後に画像をクリックして下さい）</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="nx">javascript</span><span class="o">:</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelectorAll</span><span class="p">(</span><span class="s2">&quot;img&quot;</span><span class="p">).</span><span class="nx">forEach</span><span class="p">((</span><span class="nx">element</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">element</span><span class="p">.</span><span class="nx">onclick</span> <span class="o">=</span> <span class="p">()</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">name</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">&quot;.ux-item-name&quot;</span><span class="p">).</span><span class="nx">textContent</span><span class="p">;</span>
+    <span class="nx">url</span> <span class="o">=</span> <span class="nx">element</span><span class="p">.</span><span class="nx">src</span><span class="p">;</span>
+    <span class="nx">text</span> <span class="o">=</span> <span class="sb">`![</span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">](</span><span class="si">${</span><span class="nx">url</span><span class="si">}</span><span class="sb">)`</span><span class="p">;</span>
+    <span class="nx">area</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;textarea&quot;</span><span class="p">);</span>
+    <span class="nx">area</span><span class="p">.</span><span class="nx">textContent</span> <span class="o">=</span> <span class="nx">text</span><span class="p">;</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">area</span><span class="p">);</span>
+    <span class="nx">area</span><span class="p">.</span><span class="nx">select</span><span class="p">();</span>
+    <span class="nb">document</span><span class="p">.</span><span class="nx">execCommand</span><span class="p">(</span><span class="s2">&quot;copy&quot;</span><span class="p">);</span>
+  <span class="p">};</span>
+<span class="p">});</span>
+</code></pre></div>
+<p><img alt="how to open extension's web page" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/8a63e7b4-6f53-c005-0cea-868c1300b8a7.png" /></p>
+<h3 id="_6">ツール系<a class="headerlink" href="#_6" title="Permanent link">#</a></h3>
+<h4 id="settings-sync"><a href="https://marketplace.visualstudio.com/items?itemName=Shan.code-settings-sync">Settings Sync</a><a class="headerlink" href="#settings-sync" title="Permanent link">#</a></h4>
+<p>Gist に VSCode の設定を保存して、複数マシンで共有できるようになります。
+何度もセットアップしなくて良くなるので、複数台マシンをお持ちの方は、必ず使った方が良いです。</p>
+<h4 id="git-graph"><a href="https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph">Git Graph</a><a class="headerlink" href="#git-graph" title="Permanent link">#</a></h4>
+<p>Source Tree くらい使いやすい（IDE 連携が強力なのでそれ以上かも？）Git クライアントです。
+これがあるから VSCode 使っている、まであります。
+<img alt="Git Graph" src="https://github.com/mhutchie/vscode-git-graph/raw/master/resources/demo.gif" /></p>
+<h4 id="gitlens-git-supercharged"><a href="https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens">GitLens — Git supercharged</a><a class="headerlink" href="#gitlens-git-supercharged" title="Permanent link">#</a></h4>
+<p>行ごとの変更履歴をエディタ画面に出してくれる機能が好きです。
+僕は Git Graph をメインで使っているので、こちらはそこまで使い込んでいませんが、入れておくといざという時に便利です。
+<img alt="GitLens — Git supercharged" src="https://raw.githubusercontent.com/eamodio/vscode-gitlens/master/images/docs/current-line-blame.png" /></p>
+<h4 id="remote-containers"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers">Remote - Containers</a><a class="headerlink" href="#remote-containers" title="Permanent link">#</a></h4>
+<p><code>VSCode拡張入りのコンテナ</code>で VSCode のサーバーを起動して、ホスト側の VSCode と連携できるようにする感じのものだと認識しています。
+詳細は<a href="https://code.visualstudio.com/docs/remote/remote-overview">このへん</a>見て下さい。<a href="https://code.visualstudio.com/docs/remote/codespaces">Codespaces</a>というのも新しく出たようなので、<code>devcontainer.json</code>の設定を覚えると役に立つかもしれません。</p>
+<h4 id="docker"><a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker">Docker</a><a class="headerlink" href="#docker" title="Permanent link">#</a></h4>
+<p>コンテナやイメージを一覧表示してくれます。
+一括選択してコンテナ削除もできるので、<code>--rm</code>をつけてコンテナを起動しないタイプの人は、ゴミ掃除の時に便利かもしれません。
+<img alt="Docker" src="https://github.com/microsoft/vscode-docker/raw/master/resources/readme/docker-view-context-menu.gif" /></p>
+<h4 id="sort-lines"><a href="https://marketplace.visualstudio.com/items?itemName=Tyriar.sort-lines">Sort lines</a><a class="headerlink" href="#sort-lines" title="Permanent link">#</a></h4>
+<p>複数行をアルファベット順にソートしてくれます。
+インクルードや依存パッケージを並べ替える時に便利です。
+<img alt="Sort lines" src="https://github.com/Tyriar/vscode-sort-lines/raw/master/images/usage-animation.gif" /></p>
+<h4 id="todo-tree"><a href="https://marketplace.visualstudio.com/items?itemName=Gruntfuggly.todo-tree">Todo Tree</a><a class="headerlink" href="#todo-tree" title="Permanent link">#</a></h4>
+<p>TODO コメントを見つけて一覧表示してくれます。
+<img alt="Todo Tree" src="https://raw.githubusercontent.com/Gruntfuggly/todo-tree/master/resources/screenshot.png" /></p>
+<h4 id="bookmarks"><a href="https://marketplace.visualstudio.com/items?itemName=alefragnani.Bookmarks">Bookmarks</a><a class="headerlink" href="#bookmarks" title="Permanent link">#</a></h4>
+<p>コードにブックマークを付けられます。
+（便利っぽいと思って入れてみたは良いんですが、全く活用できていないので、上手く使えている方はぜひ使い方を教えて下さい。）
+<img alt="Bookmarks" src="https://github.com/alefragnani/vscode-bookmarks/raw/master/images/printscreen-select-lines.gif" /></p>
+<h3 id="ui">UI 系<a class="headerlink" href="#ui" title="Permanent link">#</a></h3>
+<h4 id="japanese-language-pack-for-visual-studio-code"><a href="https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-ja">Japanese Language Pack for Visual Studio Code</a><a class="headerlink" href="#japanese-language-pack-for-visual-studio-code" title="Permanent link">#</a></h4>
+<p>日本語にしたい方はインストールしましょう。</p>
+<h4 id="vscode-icons"><a href="https://marketplace.visualstudio.com/items?itemName=vscode-icons-team.vscode-icons">vscode-icons</a><a class="headerlink" href="#vscode-icons" title="Permanent link">#</a></h4>
+<p>アイコンをいい感じにしてくれます。
+他にも似たような拡張機能があるので、好みで選べば良いと思います。
+<img alt="vscode-icons" src="https://raw.githubusercontent.com/vscode-icons/vscode-icons/master/images/screenshot.gif" /></p>
+<h4 id="indent-rainbow"><a href="https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow">indent-rainbow</a><a class="headerlink" href="#indent-rainbow" title="Permanent link">#</a></h4>
+<p>インデントを可視化してくれます。
+表示は EditorConfig の設定と連携してくれます。
+<img alt="indent-rainbow" src="https://oderwat.gallerycdn.vsassets.io/extensions/oderwat/indent-rainbow/7.4.0/1552964364054/Microsoft.VisualStudio.Services.Icons.Default" /></p>
+<h4 id="bracket-pair-colorizer-2"><a href="https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2">Bracket Pair Colorizer 2</a><a class="headerlink" href="#bracket-pair-colorizer-2" title="Permanent link">#</a></h4>
+<p>名前の通り、カッコのペアを可視化してくれます。1 と 2 がありますが、違いはよく知りません。
+<img alt="Bracket Pair Colorizer 2" src="https://github.com/CoenraadS/Bracket-Pair-Colorizer-2/raw/master/images/forceUniqueOpeningColorEnabled.png" /></p>
+<h4 id="rainbow-csv"><a href="https://marketplace.visualstudio.com/items?itemName=mechatroner.rainbow-csv">Rainbow CSV</a><a class="headerlink" href="#rainbow-csv" title="Permanent link">#</a></h4>
+<p>CSV のカラム毎に色分けしてくれます。
+<img alt="Rainbow CSV" src="https://i.imgur.com/PRFKVIN.png" /></p>
+<h4 id="better-comments"><a href="https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments">Better Comments</a><a class="headerlink" href="#better-comments" title="Permanent link">#</a></h4>
+<p>コメントを色分けしてくれます。
+<img alt="Better Comments" src="https://github.com/aaron-bond/better-comments/raw/master/images/better-comments.PNG" /></p>
+<h3 id="_7">エディタ系<a class="headerlink" href="#_7" title="Permanent link">#</a></h3>
+<h4 id="editorconfig-for-vs-code"><a href="https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig">EditorConfig for VS Code</a><a class="headerlink" href="#editorconfig-for-vs-code" title="Permanent link">#</a></h4>
+<p><code>.editorconfig</code>を読み込んで、タブ幅やファイル末尾の改行を設定してくれます。</p>
+<h4 id="code-spell-checker"><a href="https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker">Code Spell Checker</a><a class="headerlink" href="#code-spell-checker" title="Permanent link">#</a></h4>
+<p>名前の通り、スペルチェックをしてくれます。
+プロジェクト固有の単語は当然自分で登録していかないと行けないので、警告を見つけては頑張って右クリックをして登録しています。
+登録した単語は<code>settings.json</code>に保存されるので、<code>Settings Sync</code>でマシン間で共有できますね。
+<img alt="Code Spell Checker" src="https://raw.githubusercontent.com/streetsidesoftware/vscode-spell-checker/master/packages/client/images/suggestions.gif" /></p>
+<h4 id="path-intellisense"><a href="https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense">Path Intellisense</a><a class="headerlink" href="#path-intellisense" title="Permanent link">#</a></h4>
+<p>Path を補完してくれます。
+<img alt="Path Intellisense" src="http://i.giphy.com/iaHeUiDeTUZuo.gif" /></p>
+<h4 id="trailing-spaces"><a href="https://marketplace.visualstudio.com/items?itemName=shardulm94.trailing-spaces">Trailing Spaces</a><a class="headerlink" href="#trailing-spaces" title="Permanent link">#</a></h4>
+<p>末尾空白を可視化してくれます。
+<img alt="Trailing Spaces" src="https://shardulm94.gallerycdn.vsassets.io/extensions/shardulm94/trailing-spaces/0.3.1/1554790489790/Microsoft.VisualStudio.Services.Icons.Default" /></p>
+<h4 id="highlight-bad-chars"><a href="https://marketplace.visualstudio.com/items?itemName=wengerk.highlight-bad-chars">Highlight Bad Chars</a><a class="headerlink" href="#highlight-bad-chars" title="Permanent link">#</a></h4>
+<p>ゼロ幅スペース等の無効文字を可視化してくれます。
+<img alt="Highlight Bad Chars" src="https://wengerk.gallerycdn.vsassets.io/extensions/wengerk/highlight-bad-chars/0.0.6/1635837048321/Microsoft.VisualStudio.Services.Icons.Default" /></p>
+<h3 id="_8">言語系<a class="headerlink" href="#_8" title="Permanent link">#</a></h3>
+<h4 id="prettier-code-formatter"><a href="https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode">Prettier - Code formatter</a><a class="headerlink" href="#prettier-code-formatter" title="Permanent link">#</a></h4>
+<p>Web 関連の様々な形式のファイルを、いい感じにフォーマットしてくれます。
+以下のファイル形式に対応しているようです。</p>
+<blockquote>
+<p>JavaScript · TypeScript · Flow · JSX · JSON
+CSS · SCSS · Less
+HTML · Vue · Angular
+GraphQL · Markdown · YAML</p>
+</blockquote>
+<h4 id="markdown-all-in-one"><a href="https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one">Markdown All in One</a><a class="headerlink" href="#markdown-all-in-one" title="Permanent link">#</a></h4>
+<p>Table の整形（これは<code>Prettier</code>でもやってくれる）や Table Of Contents 生成から HTML 化まで、全部やってくれます。
+詳しくは拡張機能のページに色々書いてあるので見てみて下さい。</p>
+<h4 id="markdownlint"><a href="https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint">markdownlint</a><a class="headerlink" href="#markdownlint" title="Permanent link">#</a></h4>
+<p>Markdown 用の Linter です。ここには空行を入れなさい、とか結構厳しいです。
+<code>Prettier</code>でフォーマットすると、これに合わせて修正してくれている気がします。</p>
+<h4 id="markdown-preview-mermaid-support"><a href="https://marketplace.visualstudio.com/items?itemName=bierner.markdown-mermaid">Markdown Preview Mermaid Support</a><a class="headerlink" href="#markdown-preview-mermaid-support" title="Permanent link">#</a></h4>
+<p>標準のプレビュー機能で、<a href="https://github.com/mermaid-js/mermaid">mermaid</a>をプレビューしてくれます。</p>
+<p><img alt="Markdown Preview Mermaid Support" src="https://github.com/mjbvz/vscode-markdown-mermaid/raw/master/docs/example.png" /></p>
+<h4 id="plantuml"><a href="https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml">PlantUML</a><a class="headerlink" href="#plantuml" title="Permanent link">#</a></h4>
+<p>PlantUML のプレビューをしてくれます。
+<img alt="PlantUML" src="https://github.com/qjebbs/vscode-plantuml/raw/master/images/auto_update_demo.gif" /></p>
+<h4 id="xml-tools"><a href="https://marketplace.visualstudio.com/items?itemName=DotJoshJohnson.xml">XML Tools</a><a class="headerlink" href="#xml-tools" title="Permanent link">#</a></h4>
+<p>XML のフォーマットをしてくれます。</p>
+<h4 id="cc"><a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools">C/C++</a><a class="headerlink" href="#cc" title="Permanent link">#</a></h4>
+<p>インクルードファイルや関数定義へのジャンプ、clang-format による自動フォーマット、等全部やってくれます。</p>
+<p>ちなみに、どの拡張がどういう機能を持っているかは、設定画面で検索をすると何となくわかります。
+<code>{extension_name}.{setting_name}</code>という記述になっているので、以下を見ると<code>C_Cpp(=C/C++)</code>で<code>clang-format</code>できそうだなぁ、というのがわかります。</p>
+<p><img alt="find clang-format" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/8e7955ec-f61b-5ab1-176f-2b2fbef50231.png" /></p>
+<h4 id="cpplint"><a href="https://marketplace.visualstudio.com/items?itemName=mine.cpplint">cpplint</a><a class="headerlink" href="#cpplint" title="Permanent link">#</a></h4>
+<p><code>cpplint</code>を呼んで、エラーがあればエディタ上に可視化してくれます。</p>
+<p>ちゃんと使うには、<code>settings.json</code>に、以下のような設定が必要です。
+lineLength や filters は、clang-format 等の設定と合わせて下さい。</p>
+<div class="highlight"><pre><span></span><code><span class="w">  </span><span class="nt">&quot;cpplint.cpplintPath&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;{full_path_to_cpp_lint}&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;cpplint.lineLength&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="nt">&quot;cpplint.filters&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="s2">&quot;-build/c++11&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">  </span><span class="p">]</span><span class="w"></span>
+</code></pre></div>
+<h4 id="_9"><img alt="cpplint" src="https://github.com/secularbird/cpplint-extension/raw/master/feature.png" /><a class="headerlink" href="#_9" title="Permanent link">#</a></h4>
+<h4 id="cmake"><a href="https://marketplace.visualstudio.com/items?itemName=twxs.cmake">CMake</a><a class="headerlink" href="#cmake" title="Permanent link">#</a></h4>
+<p>CMake の補完をしてくれます。
+<img alt="CMake" src="https://github.com/twxs/vs.language.cmake/raw/master/images/cmake1.gif" /></p>
+<p>Microsoft の<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cmake-tools">CMake Tools</a>というのもありますが、ROS では不要な機能が多いのかな、と思ってこちらを使っています。</p>
+<h4 id="python"><a href="https://marketplace.visualstudio.com/items?itemName=ms-python.python">Python</a><a class="headerlink" href="#python" title="Permanent link">#</a></h4>
+<p><code>ms-vscode.cpptools</code>と同じように、大体全部やってくれます。
+ちなみに僕は、フォーマッタは<a href="https://github.com/psf/black">Black</a>が好きです。（何も考えなくていいので）</p>
+<h4 id="visual-studio-intellicode"><a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioExptTeam.vscodeintellicode">Visual Studio IntelliCode</a><a class="headerlink" href="#visual-studio-intellicode" title="Permanent link">#</a></h4>
+<p><code>Python, TypeScript/JavaScript, Java</code>の補完で、関連度の高いものを上に持ってきてくれるようになります。
+<img alt="Visual Studio IntelliCode" src="https://go.microsoft.com/fwlink/?linkid=2006041" /></p>
+<h4 id="ros"><a href="https://marketplace.visualstudio.com/items?itemName=ms-iot.vscode-ros">ROS</a><a class="headerlink" href="#ros" title="Permanent link">#</a></h4>
+<p>これを入れると、VSCode 上で ROS ノードのデバッグができるようになって無限に効率が上がるので、ROS 開発者は全員インストールした方が良いと思います。
+大規模な launch だと設定が少し必要ですが、<a href="https://qiita.com/taka_horibe/items/50e4659e88d1ee3cd04a">同僚~~に教えて記事を書かせた~~が記事を書いてくれている</a>ので、参考にしてみて下さい。</p>
+<h2 id="_10">設定を変更する<a class="headerlink" href="#_10" title="Permanent link">#</a></h2>
+<p>僕が VSCode でデフォルト設定値を変更しているものを紹介します。
+<code>settings.json</code>を直接書き換えても良いですし、UI から設定することもできます（一部 JSON のみの項目もあります）。</p>
+<h3 id="_11">ファイル保存時にフォーマットする<a class="headerlink" href="#_11" title="Permanent link">#</a></h3>
+<p>今どき自動フォーマットをかけない人なんて居ませんよね？</p>
+<p>残念ながらプロジェクト内でフォーマットをかかっていないファイルがあって、フォーマットによる diff を出したくない場合は、<code>Ctrl + K</code> -&gt; (Ctrl を離して)<code>S</code>で、フォーマットをかけずに保存することができます。</p>
+<div class="highlight"><pre><span></span><code>&quot;editor.formatOnSave&quot;: true
+</code></pre></div>
+<h3 id="_12">既定のフォーマッタを設定する<a class="headerlink" href="#_12" title="Permanent link">#</a></h3>
+<p>フォーマット機能を備えた拡張を複数インストールしている場合、競合する可能性があります。例えば、<code>Markdown All in One</code>と<code>Prettier</code>は、どちらも<code>.md</code>をフォーマットできますが、フォーマットコマンドを実行した際に使用されるのは、どちらか一方です。</p>
+<p>既定のフォーマッタを選択するには、<code>Ctrl + Shift + P</code>で<code>format</code>と検索し、<code>ドキュメントをフォーマット</code>を実行します。
+<img alt="find format" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/c89c0be9-9473-75d3-a1e2-9b597b18576d.png" /></p>
+<p>現在のファイルタイプに対応した拡張が表示されるので、既定にしたい方を選択します。
+<img alt="select default formatter" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/e874bd26-aa46-0eb6-1759-f15f046bee91.png" /></p>
+<p>これをすると、<code>settings.json</code>に以下のように追加されます。</p>
+<div class="highlight"><pre><span></span><code>&quot;[markdown]&quot;: {
+  &quot;editor.defaultFormatter&quot;: &quot;esbenp.prettier-vscode&quot;
+}
+</code></pre></div>
+<h3 id="_13">ファイル末尾に改行を挿入する<a class="headerlink" href="#_13" title="Permanent link">#</a></h3>
+<p>ファイル末尾に改行がない場合に追加します。
+git で余計な diff が出る原因になるので、共同開発している人は設定してほしいですね。
+フォーマッタ側の設定でやるべきだとは思いますが、<code>clang-format</code>では残念ながら対応していないみたいです。</p>
+<p>EditorConfig で設定する場合は、<code>insert_final_newline = true</code>です。</p>
+<div class="highlight"><pre><span></span><code>&quot;files.insertFinalNewline&quot;: true
+</code></pre></div>
+<h3 id="_14">ファイル末尾の不要な改行を削除する<a class="headerlink" href="#_14" title="Permanent link">#</a></h3>
+<p>2 行以上の余計な改行は削除します。</p>
+<p>EditorConfig で設定する場合は、<code>trim_trailing_whitespace = true</code>です。</p>
+<div class="highlight"><pre><span></span><code>&quot;files.trimFinalNewlines&quot;: true
+</code></pre></div>
+<h3 id="git-fetch">自動 git fetch する<a class="headerlink" href="#git-fetch" title="Permanent link">#</a></h3>
+<p>裏で更新してくれるので楽です。</p>
+<div class="highlight"><pre><span></span><code>&quot;git.autofetch&quot;: true
+</code></pre></div>
+<h3 id="git-commit-sign-off">git commit 時に常に Sign Off する<a class="headerlink" href="#git-commit-sign-off" title="Permanent link">#</a></h3>
+<p>OSS 開発ではプロジェクトによっては求められるので、毎回 Sign Off するのが面倒な方は付けておくと良いでしょう。
+（ここは主に同僚向けに書いています。）</p>
+<div class="highlight"><pre><span></span><code>&quot;git.alwaysSignOff&quot;: true
+</code></pre></div>
+<h3 id="git-fetch-prune">git fetch 時に prune する<a class="headerlink" href="#git-fetch-prune" title="Permanent link">#</a></h3>
+<p>remote で削除されたブランチを local でも削除してくれます。</p>
+<div class="highlight"><pre><span></span><code>&quot;git-graph.fetchAndPrune&quot;: true
+</code></pre></div>
+<h3 id="_15">ソース管理プロバイダーを常に表示する<a class="headerlink" href="#_15" title="Permanent link">#</a></h3>
+<p>そんなに邪魔になりませんし、今の branch が見えて便利なので、僕は表示させています。
+1 つのワークスペースに複数リポジトリが含まれる場合は、このオプションを有効にしていなくても、表示されると思います。</p>
+<p><img alt="always show prociders" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/31dfebe7-9ec6-c00a-dac4-fe2545c973f1.png" /></p>
+<div class="highlight"><pre><span></span><code>&quot;scm.alwaysShowProviders&quot;: true
+</code></pre></div>
+<p>こちらの設定、一度消えて、<code>scm.alwaysShowRepositories</code>になったようです。
+<a href="https://github.com/microsoft/vscode/issues/102080">https://github.com/microsoft/vscode/issues/102080</a></p>
+<h3 id="_16">ソース管理パネルで常にアクションを表示する<a class="headerlink" href="#_16" title="Permanent link">#</a></h3>
+<p>好みの問題かもしれませんんが、慣れないうちは出しておいた方がわかりやすいかもしれません。</p>
+<p>ON
+<img alt="on" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/e4ecdea3-3ed5-78ff-1646-52891426ee20.png" /></p>
+<p>OFF
+<img alt="off" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/7f1d1a2b-21c1-bee7-315c-6626f8d22e9f.png" /></p>
+<div class="highlight"><pre><span></span><code>&quot;scm.alwaysShowActions&quot;: true
+</code></pre></div>
+<p>似たものに、<code>alwaysShowHeaderActions</code>があります。こちらもお好みで。</p>
+<p>ON
+<img alt="on" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/a41267da-062b-71ab-0fd2-a53f01a9e93a.png" /></p>
+<p>OFF
+<img alt="off" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/2b543667-b8ad-f8f2-0636-7ca725c7285d.png" /></p>
+<div class="highlight"><pre><span></span><code>&quot;workbench.view.alwaysShowHeaderActions&quot;: true
+</code></pre></div>
+<h3 id="_17">統合ターミナルのスクロールバック上限を増やす<a class="headerlink" href="#_17" title="Permanent link">#</a></h3>
+<p>ログ出力で流れてしまわないよう、大きめに設定しておくのが良いです。
+無限には設定できないようなので、適当に大きい値を入れています。</p>
+<div class="highlight"><pre><span></span><code>&quot;terminal.integrated.scrollback&quot;: 100000
+</code></pre></div>
+<h2 id="_18">キーボードショートカットを変更する<a class="headerlink" href="#_18" title="Permanent link">#</a></h2>
+<p>あまりカスタマイズはせずデフォルトで使う派なんですが、どうしてもやりづらいところもあるので、若干変えています。
+昔、邪魔なので無効化したもののキーバインドが今見たら変わっているような気がするので、定期的に見直したほうが良いかもしれません。</p>
+<p><code>Ctrl + K</code> -&gt; <code>Ctrl + S</code>でショートカット一覧を開けます。コマンド名やキーバインドで検索ができます。
+ショートカットの起動条件も指定できるため、<code>あるパネルにフォーカスしている時だけ実行する</code>ことも可能です。</p>
+<p><img alt="find shortcut" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/1a21e325-cd3c-d46e-f9c6-009ab92d246e.png" /></p>
+<p><code>settings.json</code>と同じように、右上から JSON 形式で開くこともできます。
+何を変えたか見たい時は、こちらの方がわかりやすいですね。
+<code>command</code>に<code>-</code>があるものは既定に対して削除、なければ追加されたものです。</p>
+<p><img alt="open keybindings as json" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/0e9be15e-89df-d49c-0520-ca78c5f18825.png" /></p>
+<h3 id="ctrl-f">統合ターミナルで<code>Ctrl + F</code>が使えるようにする<a class="headerlink" href="#ctrl-f" title="Permanent link">#</a></h3>
+<p>fish shell を使っていると、<code>Ctrl + F</code>が使えないのはとってもストレスです。
+他にも、<code>Ctrl + E</code>や<code>Ctrl + K</code>が競合していて、普通のターミナルのようには使えないと思います。</p>
+<p><code>Ctrl + F</code>で検索をかけてデフォルト設定を見ると、ターミナルフォーカス時の<code>Ctrl + F</code>は、<code>検索ウィジェットにフォーカスする</code>となっているので、適当なものに変えてしまいましょう。僕は<code>Ctrl + Shift + F</code>にしています。
+ファイル内検索のショートカットとかぶっていますが、きちんと When 式を設定すれば競合しません。</p>
+<h3 id="ctrl-shift-tab"><code>Ctrl + (Shift) + Tab</code>ですぐにタブ移動する<a class="headerlink" href="#ctrl-shift-tab" title="Permanent link">#</a></h3>
+<p>デフォルトだと、表示は現在のタブのまま移動先を選ぶので、なんだか僕には合いません。
+こんな感じに設定しています。</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;key&quot;: &quot;ctrl+tab&quot;,
+  &quot;command&quot;: &quot;workbench.action.nextEditor&quot;
+},
+{
+  &quot;key&quot;: &quot;ctrl+shift+tab&quot;,
+  &quot;command&quot;: &quot;workbench.action.previousEditor&quot;
+}
+</code></pre></div>
+<h3 id="_19">前に戻る/次へ進むを使いやすくする<a class="headerlink" href="#_19" title="Permanent link">#</a></h3>
+<p>これ、結構使う機能だと思うんですが、（例えば、<code>F12</code>で定義に飛んだ後、元の場所に戻る時）デフォルトは以下のようになっていて、覚えるのが大変です。</p>
+<p><img alt="navigate back and forward" src="https://qiita-image-store.s3.ap-northeast-1.amazonaws.com/0/409956/3e30be48-77a1-088d-598a-7319b781e824.png" /></p>
+<p><code>前に戻る</code>は、不要な<code>Alt</code>を無くして<code>Ctrl + -</code>と使いやすくして、
+<code>次に進む</code>は<code>Ctrl + Shift + -</code>で、<code>Shift</code>の有無で反対の意味になるようにしています。</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;key&quot;: &quot;ctrl+[Minus]&quot;,
+  &quot;command&quot;: &quot;workbench.action.navigateBack&quot;
+},
+{
+  &quot;key&quot;: &quot;ctrl+shift+[Minus]&quot;,
+  &quot;command&quot;: &quot;workbench.action.navigateForward&quot;
+}
+</code></pre></div>
+<h2 id="_20">まとめ<a class="headerlink" href="#_20" title="Permanent link">#</a></h2>
+<p>自分の VSCode のセットアップ方法を整理してみました。もし誰かのお役に立てば幸いです。</p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../setup-ubuntu-2204/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Ubuntu 22.04 セットアップ" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Ubuntu 22.04 セットアップ
+            </div>
+          </div>
+        </a>
+      
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 Kenji Miyake
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.indexes", "navigation.instant", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top"], "search": "../assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.748e2769.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

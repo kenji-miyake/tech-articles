@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://kenji-miyake.github.io/tech-articles/main/setup/setup-fish-for-ros/</loc>
+         <lastmod>2022-04-25</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://kenji-miyake.github.io/tech-articles/main/setup/setup-ubuntu-2004/</loc>
          <lastmod>2022-04-25</lastmod>
          <changefreq>daily</changefreq>

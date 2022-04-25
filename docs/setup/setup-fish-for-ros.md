@@ -4,13 +4,13 @@
 
 こちらの記事に触発されたので僕も書いてみます。
 
-https://zenn.dev/eduidl/articles/fc6f29f73ebb34
+<https://zenn.dev/eduidl/articles/fc6f29f73ebb34>
 
 fish の基本的な使い方や利点/欠点は、他の解説記事にお任せします。
 このあたりが分かりやすくて良いと思いました。
 
-https://qiita.com/hennin/items/33758226a0de8c963ddf
-https://qiita.com/hiraike32/items/8458a69cd98f8ac23e7a
+<https://qiita.com/hennin/items/33758226a0de8c963ddf>
+<https://qiita.com/hiraike32/items/8458a69cd98f8ac23e7a>
 
 fish の良さを一言で言うなら、「設定をがんばらなくても、いい感じに動く」です。
 設定疲れしたあなたやデフォルト教のあなた、ぜひ使ってみて下さい！

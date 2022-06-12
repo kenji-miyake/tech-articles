@@ -23,6 +23,8 @@
     - source: mkdocs.yaml
       post-commands: |
         sd "Autoware Documentation" "Kenji Miyake's Tech Articles" {dest}
+        sd "The Autoware Foundation" "Kenji Miyake" {dest}
         sd "autowarefoundation" "kenji-miyake" {dest}
+        sd "autoware-foundation.png" "icon.png" {dest}
         sd "autoware-documentation" "tech-articles" {dest}
         sd "repo_url: .*" "repo_url: https://github.com/kenji-miyake/tech-articles" {dest}

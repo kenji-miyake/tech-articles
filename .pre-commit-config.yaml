@@ -35,4 +35,15 @@ repos:
       - id: yamllint
         exclude: .*.param.yaml
 
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.8.0.4
+    hooks:
+      - id: shellcheck
+
+  - repo: https://github.com/scop/pre-commit-shfmt
+    rev: v3.5.0-1
+    hooks:
+      - id: shfmt
+        args: [-w, -s, -i=4]
+
 exclude: .svg

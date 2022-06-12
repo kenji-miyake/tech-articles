@@ -214,7 +214,7 @@ sudo apt install fzf
 ### [koalaman/shellcheck](https://github.com/koalaman/shellcheck)
 
 ```bash
-sudo apt  install shellcheck
+sudo apt install shellcheck
 ```
 
 ### [stedolan/jq](https://github.com/stedolan/jq)
@@ -245,6 +245,12 @@ sudo apt install gh
 
 ```bash
 pip3 install argcomplete
+```
+
+### [ismaelgv/rnr](https://github.com/ismaelgv/rnr)
+
+```bash
+bin install https://github.com/ismaelgv/rnr
 ```
 
 ### [x-motemen/ghq](https://github.com/x-motemen/ghq)

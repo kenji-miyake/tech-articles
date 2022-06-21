@@ -21,10 +21,10 @@
     - source: .github/workflows/delete-closed-pr-docs.yaml
     - source: .pre-commit-config.yaml
     - source: mkdocs.yaml
-      post-commands: |
-        sd "Autoware Documentation" "Kenji Miyake's Tech Articles" {dest}
-        sd "The Autoware Foundation" "Kenji Miyake" {dest}
-        sd "autowarefoundation" "kenji-miyake" {dest}
-        sd "autoware-foundation.png" "icon.png" {dest}
-        sd "autoware-documentation" "tech-articles" {dest}
-        sd "repo_url: .*" "repo_url: https://github.com/kenji-miyake/tech-articles" {dest}
+      pre-commands: |
+        sd "Autoware Documentation" "Kenji Miyake's Tech Articles" {source}
+        sd "The Autoware Foundation" "Kenji Miyake" {source}
+        sd "autowarefoundation" "kenji-miyake" {source}
+        sd "autoware-foundation.png" "icon.png" {source}
+        sd "autoware-documentation" "tech-articles" {source}
+        sd "repo_url: .*" "repo_url: https://github.com/kenji-miyake/tech-articles" {source}
